@@ -26,6 +26,11 @@ class LoginViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func skipLoginAction(_ sender: UIButton) {
+        
+        UserDefaults.standard.setUserLoginSkippedStatus(true)
+        self.dismiss(animated: false, completion: nil)
+    }
     
     func setupViews(){
         

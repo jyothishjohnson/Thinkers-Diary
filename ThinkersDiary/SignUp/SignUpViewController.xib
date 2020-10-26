@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Termina Medium.otf">
+            <string>Termina-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="ThinkersDiary" customModuleProvider="target">
+            <connections>
+                <outlet property="signUpButton" destination="Aeu-WT-oqw" id="zSP-fQ-GEx"/>
+                <outlet property="signUpEmailTF" destination="7nY-go-rMJ" id="NG1-YT-SeU"/>
+                <outlet property="signUpMessageLabel" destination="rcD-BI-mhG" id="x9z-gs-G0o"/>
+                <outlet property="signUpPasswordConfirmTF" destination="23H-U6-vE2" id="pke-5N-EqA"/>
+                <outlet property="signUpPasswordTF" destination="8lE-Gc-t6U" id="dl0-Uz-fS0"/>
+                <outlet property="view" destination="bTg-pz-HJV" id="Q0w-jL-1y6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bTg-pz-HJV">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcD-BI-mhG">
+                    <rect key="frame" x="20" y="84" width="374" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="zP1-BN-V3K"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="23H-U6-vE2" userLabel="passwordConfirm">
+                    <rect key="frame" x="61" y="569" width="292" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="I3w-wP-Nts"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="W5K-60-I4a"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8lE-Gc-t6U" userLabel="password">
+                    <rect key="frame" x="61" y="508" width="292" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="vWy-xl-wiQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-Wg-fjm" userLabel="belowEmail">
+                    <rect key="frame" x="61" y="492" width="292" height="1"/>
+                    <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="lxw-Dq-SqL"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-go-rMJ" userLabel="email">
+                    <rect key="frame" x="61" y="448" width="292" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="8cV-Hq-Izj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V85-M6-C5e" userLabel="belowPass">
+                    <rect key="frame" x="61" y="552" width="292" height="1"/>
+                    <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="P5S-VG-v11"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-Xb-DvB">
+                    <rect key="frame" x="60" y="818" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Dl9-Fh-BUE"/>
+                        <constraint firstAttribute="width" constant="60" id="Xyb-tn-bYo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="13"/>
+                    <state key="normal" title="SKIP">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="skipSignUpAction:" destination="-1" eventType="touchUpInside" id="sK0-AB-Txr"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIH-8k-pzf">
+                    <rect key="frame" x="61" y="613" width="292" height="1"/>
+                    <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="hjo-CA-OSs"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aeu-WT-oqw" userLabel="SIGNUP">
+                    <rect key="frame" x="60" y="637" width="294" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="TTV-0t-Bi8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="17"/>
+                    <state key="normal" title="SIGNUP">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="signUpAction:" destination="-1" eventType="touchUpInside" id="lkR-hP-Dgd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="kp9-G2-bfX"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="23H-U6-vE2" firstAttribute="leading" secondItem="kp9-G2-bfX" secondAttribute="leading" constant="61" id="0Z9-4p-uj9"/>
+                <constraint firstItem="kp9-G2-bfX" firstAttribute="trailing" secondItem="23H-U6-vE2" secondAttribute="trailing" constant="61" id="1zb-4g-O77"/>
+                <constraint firstItem="V85-M6-C5e" firstAttribute="top" secondItem="8lE-Gc-t6U" secondAttribute="bottom" id="36C-ge-kNa"/>
+                <constraint firstItem="Aeu-WT-oqw" firstAttribute="leading" secondItem="kp9-G2-bfX" secondAttribute="leading" constant="60" id="37a-4e-ZUM"/>
+                <constraint firstItem="kp9-G2-bfX" firstAttribute="trailing" secondItem="8lE-Gc-t6U" secondAttribute="trailing" constant="61" id="5BN-Tk-Wgg"/>
+                <constraint firstItem="23H-U6-vE2" firstAttribute="top" secondItem="V85-M6-C5e" secondAttribute="bottom" constant="16" id="AbE-5z-Bdw"/>
+                <constraint firstAttribute="trailing" secondItem="vS5-Wg-fjm" secondAttribute="trailing" constant="61" id="C28-mx-szr"/>
+                <constraint firstItem="Aeu-WT-oqw" firstAttribute="top" secondItem="23H-U6-vE2" secondAttribute="bottom" constant="24" id="Db8-Rl-HJ3"/>
+                <constraint firstItem="Vdc-Xb-DvB" firstAttribute="bottom" secondItem="kp9-G2-bfX" secondAttribute="bottom" id="E8R-Fx-SNV"/>
+                <constraint firstItem="7nY-go-rMJ" firstAttribute="top" secondItem="rcD-BI-mhG" secondAttribute="bottom" constant="164" id="IjI-rw-VrF"/>
+                <constraint firstItem="8lE-Gc-t6U" firstAttribute="leading" secondItem="kp9-G2-bfX" secondAttribute="leading" constant="61" id="MMm-a9-1Ik"/>
+                <constraint firstItem="kp9-G2-bfX" firstAttribute="trailing" secondItem="rcD-BI-mhG" secondAttribute="trailing" constant="20" id="Nbp-7m-FfC"/>
+                <constraint firstItem="IIH-8k-pzf" firstAttribute="top" secondItem="23H-U6-vE2" secondAttribute="bottom" id="P5p-di-rGR"/>
+                <constraint firstItem="kp9-G2-bfX" firstAttribute="trailing" secondItem="7nY-go-rMJ" secondAttribute="trailing" constant="61" id="PvH-54-f3i"/>
+                <constraint firstItem="rcD-BI-mhG" firstAttribute="top" secondItem="kp9-G2-bfX" secondAttribute="top" constant="40" id="RXw-JZ-nhn"/>
+                <constraint firstItem="7nY-go-rMJ" firstAttribute="leading" secondItem="kp9-G2-bfX" secondAttribute="leading" constant="61" id="T4Q-xo-Kt9"/>
+                <constraint firstItem="kp9-G2-bfX" firstAttribute="trailing" secondItem="Aeu-WT-oqw" secondAttribute="trailing" constant="60" id="UOP-c3-lwP"/>
+                <constraint firstItem="IIH-8k-pzf" firstAttribute="leading" secondItem="bTg-pz-HJV" secondAttribute="leading" constant="61" id="Yht-Wx-zME"/>
+                <constraint firstItem="rcD-BI-mhG" firstAttribute="leading" secondItem="kp9-G2-bfX" secondAttribute="leading" constant="20" id="YjZ-kB-aae"/>
+                <constraint firstAttribute="trailing" secondItem="V85-M6-C5e" secondAttribute="trailing" constant="61" id="YmP-4f-DJD"/>
+                <constraint firstItem="vS5-Wg-fjm" firstAttribute="top" secondItem="7nY-go-rMJ" secondAttribute="bottom" id="fqr-dS-6Gn"/>
+                <constraint firstItem="vS5-Wg-fjm" firstAttribute="leading" secondItem="bTg-pz-HJV" secondAttribute="leading" constant="61" id="iAM-Bx-qQs"/>
+                <constraint firstItem="V85-M6-C5e" firstAttribute="leading" secondItem="bTg-pz-HJV" secondAttribute="leading" constant="61" id="jye-yP-R59"/>
+                <constraint firstAttribute="trailing" secondItem="IIH-8k-pzf" secondAttribute="trailing" constant="61" id="l1a-dD-xWy"/>
+                <constraint firstItem="Vdc-Xb-DvB" firstAttribute="leading" secondItem="Aeu-WT-oqw" secondAttribute="leading" id="sZj-wf-9AQ"/>
+                <constraint firstItem="8lE-Gc-t6U" firstAttribute="top" secondItem="7nY-go-rMJ" secondAttribute="bottom" constant="16" id="wAj-wa-G1P"/>
+            </constraints>
+            <point key="canvasLocation" x="56.521739130434788" y="97.767857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -28,10 +28,15 @@ class RootViewController: UIViewController {
     
     func navigateUserFlow(){
 
-        if UserDefaults.standard.getIsUserLoggedInStatus(){
-            vc = HomeViewController(nibName: "HomeViewController", bundle: .main)
+        if UserDefaults.standard.getIsUserLoggedInStatus() || UserDefaults.standard.getUserLoginSkippedStatus(){
+            vc = HomeViewController(nibName: nil, bundle: .main)
         }else{
-            vc = LoginViewController(nibName: "LoginViewController", bundle: .main)
+           
+            if UserDefaults.standard.getIsInitialAppUsage() == 0 {
+                vc = SignUpViewController(nibName: nil, bundle: .main)
+            }else{
+                vc = LoginViewController(nibName: nil, bundle: .main)
+            }
         }
     }
 }

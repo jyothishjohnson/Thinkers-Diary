@@ -17,6 +17,8 @@
 		2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2231159A253EBC7700B85BD4 /* RootViewController.xib */; };
 		223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A3253EC09D00B85BD4 /* UserDefs.swift */; };
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
+		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
+		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
 		22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17B5253ECAC200FDE243 /* LoginViewController.swift */; };
 		22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17B6253ECAC200FDE243 /* LoginViewController.xib */; };
 		22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17BB253ECB7700FDE243 /* HomeViewController.swift */; };
@@ -38,6 +40,8 @@
 		2231159A253EBC7700B85BD4 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		223115A3253EC09D00B85BD4 /* UserDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefs.swift; sourceTree = "<group>"; };
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		22EA17B5253ECAC200FDE243 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22EA17B6253ECAC200FDE243 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		22EA17BB253ECB7700FDE243 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			children = (
 				223115A6253EC35000B85BD4 /* Utils */,
 				22311598253EBC5E00B85BD4 /* Root */,
+				2274B3392546AB43006E8CA9 /* SignUp */,
 				22EA17B4253ECAA900FDE243 /* Login */,
 				22EA17BA253ECB6600FDE243 /* Home */,
 				223115A0253EBEF800B85BD4 /* Resources */,
@@ -131,6 +136,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		2274B3392546AB43006E8CA9 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */,
+				2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		22EA17B4253ECAA900FDE243 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +169,6 @@
 				0C807D26E71FBF042C6C4DE0 /* Pods-ThinkersDiary.debug.xcconfig */,
 				F2CFF9B1FAFA13C0F015D8EE /* Pods-ThinkersDiary.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -231,6 +244,7 @@
 				2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */,
 				2231158B253EBB7900B85BD4 /* Main.storyboard in Resources */,
 				22EA17BE253ECB7700FDE243 /* HomeViewController.xib in Resources */,
+				2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */,
 				22EA17C3253EF55800FDE243 /* Termina Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +287,7 @@
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				2231159B253EBC7800B85BD4 /* RootViewController.swift in Sources */,
 				223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */,
+				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
 				22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,
 			);
@@ -425,6 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2S498RPXZ;
 				INFOPLIST_FILE = ThinkersDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,6 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2S498RPXZ;
 				INFOPLIST_FILE = ThinkersDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -80,6 +80,20 @@
                         <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="rx3-Ox-sv3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUL-O7-IRJ">
+                    <rect key="frame" x="60" y="818" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="0Hn-kH-o6O"/>
+                        <constraint firstAttribute="height" constant="44" id="nBh-ay-3JW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="13"/>
+                    <state key="normal" title="SKIP">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="skipLoginAction:" destination="-1" eventType="touchUpInside" id="oNU-Mv-ByM"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,10 +105,12 @@
                 <constraint firstItem="yMK-fo-qXb" firstAttribute="top" secondItem="2HF-eo-TJY" secondAttribute="bottom" constant="16" id="Cnp-3H-l9x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cW5-oU-pMj" secondAttribute="trailing" constant="20" id="DNh-Md-Fwz"/>
                 <constraint firstItem="bPL-3N-8eo" firstAttribute="top" secondItem="2HF-eo-TJY" secondAttribute="bottom" id="I50-W8-0oj"/>
+                <constraint firstItem="CUL-O7-IRJ" firstAttribute="leading" secondItem="e1f-Nb-sao" secondAttribute="leading" id="ISQ-et-jX2"/>
                 <constraint firstItem="2HF-eo-TJY" firstAttribute="top" secondItem="cW5-oU-pMj" secondAttribute="bottom" constant="180" id="JUS-My-fB8"/>
                 <constraint firstAttribute="trailing" secondItem="7xe-zM-pi2" secondAttribute="trailing" constant="61" id="NPC-o5-JQi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yMK-fo-qXb" secondAttribute="trailing" constant="61" id="R4k-du-28P"/>
                 <constraint firstItem="yMK-fo-qXb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="61" id="Vgu-F8-zZy"/>
+                <constraint firstItem="CUL-O7-IRJ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="XnO-ue-8Fe"/>
                 <constraint firstItem="cW5-oU-pMj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cb8-gW-pdS"/>
                 <constraint firstItem="2HF-eo-TJY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="61" id="di0-bz-pCu"/>
                 <constraint firstItem="7xe-zM-pi2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="61" id="g90-ch-Ffg"/>
