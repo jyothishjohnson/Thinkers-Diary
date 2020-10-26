@@ -10,10 +10,10 @@ import Foundation
 extension UserDefaults {
     
     func setIsUserLoggedInStatus(_ status: Bool){
-        self.setValue(status, forKey:  GlobalConstants.UserStatus.loginStatus)
+        self.setValue(status, forKey:  GlobalConstants.UserStatus.loginStatusKey)
     }
     
     func getIsUserLoggedInStatus() -> Bool{
-        self.bool(forKey: GlobalConstants.UserStatus.loginStatus)
+        self.bool(forKey: GlobalConstants.UserStatus.loginStatusKey)
     }
 }

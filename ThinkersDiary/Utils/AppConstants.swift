@@ -19,6 +19,6 @@ struct GlobalConstants {
     }
     
     struct UserStatus {
-        static let loginStatus = "USER_LOGIN_STATUS"
+        static let loginStatusKey = "USER_LOGIN_STATUS"
     }
 }
