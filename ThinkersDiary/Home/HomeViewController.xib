@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ThinkersDiary" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="Spd-j8-8vc" id="XhX-Ti-12c"/>
+                <outlet property="tabsView" destination="fyS-QW-9fZ" id="pPG-mu-OE2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,30 +21,42 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsh-nL-gik">
-                    <rect key="frame" x="186" y="438" width="46" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-Dk-9r7">
-                    <rect key="frame" x="185" y="602" width="48" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Logout"/>
-                    <connections>
-                        <action selector="logoutAction:" destination="-1" eventType="touchUpInside" id="oKF-LR-xb6"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spd-j8-8vc" userLabel="container">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="798"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyS-QW-9fZ" userLabel="tabsView" customClass="TabsView" customModule="ThinkersDiary" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="798" width="414" height="64"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="RMW-p7-nef"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="f00-SX-yG5"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="-194" y="98"/>
+            <constraints>
+                <constraint firstItem="Spd-j8-8vc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="A4u-xx-KKe"/>
+                <constraint firstItem="fyS-QW-9fZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EpA-38-mB3"/>
+                <constraint firstItem="fyS-QW-9fZ" firstAttribute="top" secondItem="Spd-j8-8vc" secondAttribute="bottom" id="OGn-BJ-LxE"/>
+                <constraint firstItem="fyS-QW-9fZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RHE-1U-7EV"/>
+                <constraint firstItem="fyS-QW-9fZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Yud-6Z-ovW"/>
+                <constraint firstItem="Spd-j8-8vc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pTT-Mi-PsI"/>
+                <constraint firstItem="Spd-j8-8vc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uKT-Kj-gfE"/>
+            </constraints>
+            <point key="canvasLocation" x="-194.20289855072465" y="97.767857142857139"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

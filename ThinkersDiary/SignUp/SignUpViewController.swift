@@ -23,6 +23,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpAction(_ sender: UIButton) {
+        
+        //FIXME:- Redirect to login page on success
         UserDefaults.standard.setIsUserLoggedInStatus(true)
         UserDefaults.standard.setIsInitialAppUsage(1)
         self.dismiss(animated: false, completion: nil)

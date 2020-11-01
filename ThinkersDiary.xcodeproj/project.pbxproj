@@ -19,6 +19,13 @@
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
 		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
+		22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA2254EB37600B3B159 /* NotesViewController.swift */; };
+		22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BA3254EB37600B3B159 /* NotesViewController.xib */; };
+		22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */; };
+		22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BAB254EBB8900B3B159 /* TabsView.swift */; };
+		22A80BB0254EBBBA00B3B159 /* TabsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BAF254EBBBA00B3B159 /* TabsView.xib */; };
+		22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */; };
+		22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */; };
 		22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17B5253ECAC200FDE243 /* LoginViewController.swift */; };
 		22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17B6253ECAC200FDE243 /* LoginViewController.xib */; };
 		22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17BB253ECB7700FDE243 /* HomeViewController.swift */; };
@@ -42,6 +49,13 @@
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		22A80BA2254EB37600B3B159 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		22A80BA3254EB37600B3B159 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
+		22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabDataSource.swift; sourceTree = "<group>"; };
+		22A80BAB254EBB8900B3B159 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		22A80BAF254EBBBA00B3B159 /* TabsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsView.xib; sourceTree = "<group>"; };
+		22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCollectionViewCell.swift; sourceTree = "<group>"; };
+		22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsCollectionViewCell.xib; sourceTree = "<group>"; };
 		22EA17B5253ECAC200FDE243 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22EA17B6253ECAC200FDE243 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		22EA17BB253ECB7700FDE243 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +159,42 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		22A80BA0254EB35100B3B159 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				22A80BA1254EB35F00B3B159 /* Notes */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		22A80BA1254EB35F00B3B159 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				22A80BA2254EB37600B3B159 /* NotesViewController.swift */,
+				22A80BA3254EB37600B3B159 /* NotesViewController.xib */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		22A80BAA254EBB6200B3B159 /* TabsView */ = {
+			isa = PBXGroup;
+			children = (
+				22A80BB2254EBD4600B3B159 /* Cell */,
+				22A80BAB254EBB8900B3B159 /* TabsView.swift */,
+				22A80BAF254EBBBA00B3B159 /* TabsView.xib */,
+			);
+			path = TabsView;
+			sourceTree = "<group>";
+		};
+		22A80BB2254EBD4600B3B159 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */,
+				22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		22EA17B4253ECAA900FDE243 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +207,11 @@
 		22EA17BA253ECB6600FDE243 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				22A80BAA254EBB6200B3B159 /* TabsView */,
+				22A80BA0254EB35100B3B159 /* Sections */,
 				22EA17BB253ECB7700FDE243 /* HomeViewController.swift */,
 				22EA17BC253ECB7700FDE243 /* HomeViewController.xib */,
+				22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -238,8 +291,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A80BB0254EBBBA00B3B159 /* TabsView.xib in Resources */,
+				22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */,
 				22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */,
 				22311590253EBB7900B85BD4 /* LaunchScreen.storyboard in Resources */,
+				22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */,
 				2231158D253EBB7900B85BD4 /* Assets.xcassets in Resources */,
 				2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */,
 				2231158B253EBB7900B85BD4 /* Main.storyboard in Resources */,
@@ -285,8 +341,12 @@
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
+				22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */,
 				2231159B253EBC7800B85BD4 /* RootViewController.swift in Sources */,
+				22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */,
 				223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */,
+				22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */,
+				22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */,
 				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
 				22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,

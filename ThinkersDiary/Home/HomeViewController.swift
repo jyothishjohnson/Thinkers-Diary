@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var tabsView: TabsView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,8 +19,18 @@ class HomeViewController: UIViewController {
         print(UserDefaults.standard.getIsUserLoggedInStatus())
     }
     
-    @IBAction func logoutAction(_ sender: UIButton) {
-        UserDefaults.standard.setIsUserLoggedInStatus(false)
-        self.dismiss(animated: false, completion: nil)
-    }
+    
+    
+//    @IBAction func logoutAction(_ sender: UIButton) {
+//        UserDefaults.standard.setIsUserLoggedInStatus(false)
+//        self.dismiss(animated: false, completion: nil)
+//    }
+}
+
+enum HomeTabs {
+    
+    case notes
+    case todos
+    case diary
+    case profile
 }
