@@ -60,8 +60,12 @@ extension TabsView {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabsCollectionViewCell", for: indexPath) as! TabsCollectionViewCell
-//        cell.color = datasource[indexPath.row]
         cell.cellNameText = datasource[indexPath.row]?.cName
+        
+        if indexPath.row == 0 {
+            cell.addColor()
+            currentIndexPath = indexPath
+        }
         return cell
     }
     
@@ -78,11 +82,11 @@ extension TabsView {
         
         if let iPath = currentIndexPath {
             let cell = collectionView.cellForItem(at: iPath) as? TabsCollectionViewCell
-            cell?.removeWhite()
+            cell?.removeColor()
         }
         
         let cell = collectionView.cellForItem(at: indexPath) as? TabsCollectionViewCell
-        cell?.addWhite()
+        cell?.addColor()
         
         currentIndexPath = indexPath
     }

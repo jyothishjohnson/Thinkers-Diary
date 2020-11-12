@@ -10,7 +10,7 @@ import UIKit
 class TabsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var cellName: UILabel!
+    @IBOutlet weak var cellNameLabel: UILabel!
     var color : UIColor? {
         didSet {
             cellView.backgroundColor = color
@@ -19,26 +19,29 @@ class TabsCollectionViewCell: UICollectionViewCell {
     
     var cellNameText : String? {
         didSet {
-            cellName.text = cellNameText
+            cellNameLabel.text = cellNameText
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = .white
+        self.cellNameLabel.textColor = .black
+        self.cellView.layer.cornerRadius = 16
         // Initialization code
     }
     
-    func removeWhite(){
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
-            self.cellView.backgroundColor = .black
-            self.cellName.textColor = .white
+    func removeColor(){
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
+            self.cellView.backgroundColor = .white
+            self.cellNameLabel.textColor = .black
         }
     }
 
-    func addWhite(){
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
-            self.cellView.backgroundColor = .white
-            self.cellName.textColor = .black
+    func addColor(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+            self.cellView.backgroundColor = .black
+            self.cellNameLabel.textColor = .white
         }
     }
 }

@@ -24,11 +24,11 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fA-Dw-B6N">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="6" y="6" width="38" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lL-Kc-MvX">
-                                <rect key="frame" x="3" y="17" width="44" height="16"/>
-                                <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="13"/>
+                                <rect key="frame" x="0.5" y="12.5" width="37.5" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,13 +43,13 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="8fA-Dw-B6N" secondAttribute="trailing" id="QyG-bd-V7d"/>
-                <constraint firstItem="8fA-Dw-B6N" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pkf-vN-x8i"/>
-                <constraint firstAttribute="bottom" secondItem="8fA-Dw-B6N" secondAttribute="bottom" id="tgM-J5-4yu"/>
-                <constraint firstItem="8fA-Dw-B6N" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vCo-OG-rfN"/>
+                <constraint firstAttribute="trailing" secondItem="8fA-Dw-B6N" secondAttribute="trailing" constant="6" id="QyG-bd-V7d"/>
+                <constraint firstItem="8fA-Dw-B6N" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="pkf-vN-x8i"/>
+                <constraint firstAttribute="bottom" secondItem="8fA-Dw-B6N" secondAttribute="bottom" constant="6" id="tgM-J5-4yu"/>
+                <constraint firstItem="8fA-Dw-B6N" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="vCo-OG-rfN"/>
             </constraints>
             <connections>
-                <outlet property="cellName" destination="8lL-Kc-MvX" id="ZQQ-Rw-rp8"/>
+                <outlet property="cellNameLabel" destination="8lL-Kc-MvX" id="ZQQ-Rw-rp8"/>
                 <outlet property="cellView" destination="8fA-Dw-B6N" id="ngb-OL-GDw"/>
             </connections>
             <point key="canvasLocation" x="-38" y="106"/>
