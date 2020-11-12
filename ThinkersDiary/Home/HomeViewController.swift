@@ -16,10 +16,16 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabsDataSource = HomeTabDataSource(self).data
-        tabsView.datasource = tabsDataSource
+        setData()
         print(UserDefaults.standard.getUserLoginSkippedStatus())
         print(UserDefaults.standard.getIsUserLoggedInStatus())
+    }
+    
+    func setData(){
+        tabsDataSource = HomeTabDataSource(self).data
+        tabsView.datasource = tabsDataSource.map{
+            $0?.title ?? ""
+        }
     }
     
 //    @IBAction func logoutAction(_ sender: UIButton) {
