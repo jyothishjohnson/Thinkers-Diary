@@ -10,9 +10,16 @@ import UIKit
 class TabsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var cellName: UILabel!
     var color : UIColor? {
         didSet {
             cellView.backgroundColor = color
+        }
+    }
+    
+    var cellNameText : String? {
+        didSet {
+            cellName.text = cellNameText
         }
     }
     

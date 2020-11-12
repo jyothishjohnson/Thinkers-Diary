@@ -12,14 +12,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabsView: TabsView!
     
+    var tabsDataSource : [NotesViewController?] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabsDataSource = HomeTabDataSource(self).data
+        tabsView.datasource = tabsDataSource
         print(UserDefaults.standard.getUserLoginSkippedStatus())
         print(UserDefaults.standard.getIsUserLoggedInStatus())
     }
-    
-    
     
 //    @IBAction func logoutAction(_ sender: UIButton) {
 //        UserDefaults.standard.setIsUserLoggedInStatus(false)

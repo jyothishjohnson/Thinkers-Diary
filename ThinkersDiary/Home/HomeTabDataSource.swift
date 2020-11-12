@@ -9,22 +9,22 @@ import UIKit
 
 class HomeTabDataSource {
     
-    var data = [UIViewController?]()
+    var data = [NotesViewController?]()
     unowned var parent : UIViewController!
     
-    lazy var todoController : UIViewController = {
+    lazy var todoController : NotesViewController = {
         
         let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
         controller.cName = "Notes"
         return controller
     }()
-    lazy var reminderController : UIViewController = {
+    lazy var reminderController : NotesViewController = {
         
         let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
         controller.cName = "Reminder"
         return controller
     }()
-    lazy var diaryController : UIViewController = {
+    lazy var diaryController : NotesViewController = {
         
         let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
         controller.cName = "Diary"

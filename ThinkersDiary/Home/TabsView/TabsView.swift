@@ -12,8 +12,8 @@ class TabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     
-    let datasource : [UIColor] = [.red, .gray]
-    
+    var datasource : [NotesViewController?] = []
+        
     // MARK: Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,8 +58,8 @@ extension TabsView {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabsCollectionViewCell", for: indexPath) as! TabsCollectionViewCell
-        cell.color = datasource[indexPath.row]
-        
+//        cell.color = datasource[indexPath.row]
+        cell.cellNameText = datasource[indexPath.row]?.cName
         return cell
     }
     
