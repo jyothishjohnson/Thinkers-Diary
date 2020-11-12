@@ -12,7 +12,7 @@ class TabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     
-    var datasource : [NotesViewController?] = []
+    var datasource : [UIViewController?] = []
     
     var currentIndexPath : IndexPath?
         
@@ -60,7 +60,7 @@ extension TabsView {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabsCollectionViewCell", for: indexPath) as! TabsCollectionViewCell
-        cell.cellNameText = datasource[indexPath.row]?.cName
+        cell.cellNameText = datasource[indexPath.row]?.title
         
         if indexPath.row == 0 {
             cell.addColor()

@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabsView: TabsView!
     
-    var tabsDataSource : [NotesViewController?] = []
+    var tabsDataSource : [UIViewController?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
