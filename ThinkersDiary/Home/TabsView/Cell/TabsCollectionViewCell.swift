@@ -27,5 +27,18 @@ class TabsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func removeWhite(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+            self.cellView.backgroundColor = .black
+            self.cellName.textColor = .white
+        }
+    }
 
+    func addWhite(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+            self.cellView.backgroundColor = .white
+            self.cellName.textColor = .black
+        }
+    }
 }

@@ -13,6 +13,8 @@ class TabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     @IBOutlet var containerView: UIView!
     
     var datasource : [NotesViewController?] = []
+    
+    var currentIndexPath : IndexPath?
         
     // MARK: Life Cycle
     override init(frame: CGRect) {
@@ -73,5 +75,15 @@ extension TabsView {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
+        
+        if let iPath = currentIndexPath {
+            let cell = collectionView.cellForItem(at: iPath) as? TabsCollectionViewCell
+            cell?.removeWhite()
+        }
+        
+        let cell = collectionView.cellForItem(at: indexPath) as? TabsCollectionViewCell
+        cell?.addWhite()
+        
+        currentIndexPath = indexPath
     }
 }
