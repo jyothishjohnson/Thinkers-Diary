@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabsView.delegate = self
         setData()
         print(UserDefaults.standard.getUserLoginSkippedStatus())
         print(UserDefaults.standard.getIsUserLoggedInStatus())
@@ -32,6 +33,13 @@ class HomeViewController: UIViewController {
 //        UserDefaults.standard.setIsUserLoggedInStatus(false)
 //        self.dismiss(animated: false, completion: nil)
 //    }
+}
+
+extension HomeViewController : TabsMenuDelegate {
+    
+    func menuDidSelect(position: Int) {
+        print(position)
+    }
 }
 
 enum HomeTabs {

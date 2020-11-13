@@ -7,7 +7,12 @@
 
 import UIKit
 
-class TabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol TabsMenuDelegate: class{
+    
+    func menuDidSelect(position : Int)
+}
+
+class TabsView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
@@ -15,6 +20,7 @@ class TabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     var datasource : [String] = []
     
     var currentIndexPath : IndexPath?
+    weak var delegate : TabsMenuDelegate?
         
     // MARK: Life Cycle
     override init(frame: CGRect) {
@@ -52,7 +58,7 @@ class TabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
 }
 
 
-extension TabsView {
+extension TabsView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         datasource.count
@@ -78,15 +84,15 @@ extension TabsView {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
         
-        if let iPath = currentIndexPath {
-            let cell = collectionView.cellForItem(at: iPath) as? TabsCollectionViewCell
+        if let previousIndexPath = currentIndexPath {
+            let cell = collectionView.cellForItem(at: previousIndexPath) as? TabsCollectionViewCell
             cell?.removeColor()
         }
         
         let cell = collectionView.cellForItem(at: indexPath) as? TabsCollectionViewCell
         cell?.addColor()
+        delegate?.menuDidSelect(position: indexPath.row)
         
         currentIndexPath = indexPath
     }
