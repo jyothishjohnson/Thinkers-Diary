@@ -12,23 +12,30 @@ class HomeTabDataSource {
     var data = [UIViewController?]()
     unowned var parent : UIViewController!
     
-    lazy var todoController : NotesViewController = {
+    lazy var todoController : UIViewController = {
         
         let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
         controller.title = "Notes"
         return controller
     }()
-    lazy var reminderController : NotesViewController = {
+    lazy var reminderController : UIViewController = {
         
         let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
         controller.title = "Reminder"
         return controller
     }()
-    lazy var diaryController : NotesViewController = {
+    lazy var diaryController : UIViewController = {
         
         let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
         controller.title = "Diary"
         return controller
+    }()
+    lazy var profileController : UIViewController = {
+        
+        let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
+        controller.title = "Profile"
+        return controller
+
     }()
     
     
@@ -36,7 +43,7 @@ class HomeTabDataSource {
     
     init(_ parent: UIViewController){
         self.parent = parent
-        data = [todoController,reminderController,diaryController]
+        data = [todoController,reminderController,diaryController,profileController]
     }
     
 }

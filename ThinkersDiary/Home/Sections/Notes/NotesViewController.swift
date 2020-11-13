@@ -11,8 +11,6 @@ class NotesViewController: UIViewController {
 
     @IBOutlet weak var name: UILabel!
     
-    var cName : String!
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -20,6 +18,6 @@ class NotesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        name.text = cName
+        name.text = title
     }
 }

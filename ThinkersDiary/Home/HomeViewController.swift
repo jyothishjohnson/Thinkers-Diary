@@ -18,8 +18,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tabsView.delegate = self
         setData()
-        print(UserDefaults.standard.getUserLoginSkippedStatus())
-        print(UserDefaults.standard.getIsUserLoggedInStatus())
     }
     
     func setData(){
@@ -27,6 +25,7 @@ class HomeViewController: UIViewController {
         tabsView.datasource = tabsDataSource.map{
             $0?.title ?? ""
         }
+        selectController(at: 0)
     }
     
 //    @IBAction func logoutAction(_ sender: UIButton) {
@@ -38,7 +37,43 @@ class HomeViewController: UIViewController {
 extension HomeViewController : TabsMenuDelegate {
     
     func menuDidSelect(position: Int) {
-        print(position)
+        loadController(at: position)
+    }
+}
+
+//MARK: - Add Remove Child Viewcontrollers
+extension HomeViewController {
+    
+    private func loadController(at position: Int){
+        removeAllChilds {
+            selectController(at: position)
+        }
+    }
+    
+    func selectController(at position : Int){
+        add(asChildViewController: tabsDataSource[position]!)
+    }
+    
+    private func add(asChildViewController viewController: UIViewController) {
+
+        addChild(viewController)
+        containerView.addSubview(viewController.view)
+        viewController.view.frame = containerView.bounds
+        viewController.didMove(toParent: self)
+    }
+
+
+
+    private func removeAllChilds(_ onCompletion: () -> ()) {
+
+        let viewcontrollers = self.children
+        for viewController in viewcontrollers {
+
+            viewController.willMove(toParent: nil)
+            viewController.view.removeFromSuperview()
+            viewController.removeFromParent()
+        }
+        onCompletion()
     }
 }
 

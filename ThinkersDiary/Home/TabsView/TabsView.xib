@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Jvz-dG-oUQ">
-                    <rect key="frame" x="4" y="0.0" width="406" height="64"/>
+                    <rect key="frame" x="6" y="0.0" width="402" height="64"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="i3e-E1-nqc">
                         <size key="itemSize" width="128" height="128"/>
@@ -34,10 +34,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Jvz-dG-oUQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="Usa-kh-bsz"/>
+                <constraint firstItem="Jvz-dG-oUQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="Usa-kh-bsz"/>
                 <constraint firstItem="Jvz-dG-oUQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xq5-vQ-ypI"/>
                 <constraint firstItem="Jvz-dG-oUQ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bnv-9R-65B"/>
-                <constraint firstItem="Jvz-dG-oUQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-4" id="rIv-SX-fkJ"/>
+                <constraint firstItem="Jvz-dG-oUQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-6" id="rIv-SX-fkJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-149.27536231884059" y="105.80357142857143"/>

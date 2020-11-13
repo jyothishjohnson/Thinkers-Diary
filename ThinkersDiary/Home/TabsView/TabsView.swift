@@ -17,7 +17,11 @@ class TabsView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     
-    var datasource : [String] = []
+    var datasource : [String] = [] {
+        didSet {
+            print(datasource)
+        }
+    }
     
     var currentIndexPath : IndexPath?
     weak var delegate : TabsMenuDelegate?
@@ -46,14 +50,14 @@ class TabsView: UIView {
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        print(collectionView.frame)
-        print(containerView.frame)
+
     }
     
     func registerCell(){
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "TabsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "TabsCollectionViewCell")
+        collectionView.isScrollEnabled = false
     }
 }
 
@@ -79,7 +83,6 @@ extension TabsView : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let width = collectionView.frame.width / CGFloat(datasource.count)
         let height = collectionView.frame.height
-        
         return CGSize(width: width, height: height)
     }
     

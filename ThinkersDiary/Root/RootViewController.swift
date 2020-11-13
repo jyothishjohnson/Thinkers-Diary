@@ -23,7 +23,7 @@ class RootViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false, completion: nil)
+        present(vc, animated: false)
     }
     
     func navigateUserFlow(){
