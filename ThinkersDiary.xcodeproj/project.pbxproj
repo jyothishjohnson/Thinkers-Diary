@@ -20,6 +20,8 @@
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
 		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
 		2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428A255FBEEE0010537F /* UIAlertController.swift */; };
+		22864290255FF96C0010537F /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428E255FF96C0010537F /* RemindersViewController.swift */; };
+		22864291255FF96C0010537F /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286428F255FF96C0010537F /* RemindersViewController.xib */; };
 		22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA2254EB37600B3B159 /* NotesViewController.swift */; };
 		22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BA3254EB37600B3B159 /* NotesViewController.xib */; };
 		22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */; };
@@ -52,6 +54,8 @@
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		2286428A255FBEEE0010537F /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		2286428E255FF96C0010537F /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		2286428F255FF96C0010537F /* RemindersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
 		22A80BA2254EB37600B3B159 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		22A80BA3254EB37600B3B159 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
 		22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabDataSource.swift; sourceTree = "<group>"; };
@@ -165,9 +169,19 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		2286428D255FF9400010537F /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				2286428E255FF96C0010537F /* RemindersViewController.swift */,
+				2286428F255FF96C0010537F /* RemindersViewController.xib */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
 		22A80BA0254EB35100B3B159 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				2286428D255FF9400010537F /* Reminders */,
 				22A80BA1254EB35F00B3B159 /* Notes */,
 			);
 			path = Sections;
@@ -301,6 +315,7 @@
 				22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */,
 				22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */,
 				22311590253EBB7900B85BD4 /* LaunchScreen.storyboard in Resources */,
+				22864291255FF96C0010537F /* RemindersViewController.xib in Resources */,
 				22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */,
 				2231158D253EBB7900B85BD4 /* Assets.xcassets in Resources */,
 				2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */,
@@ -343,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22864290255FF96C0010537F /* RemindersViewController.swift in Sources */,
 				22EA17C6253EFF2700FDE243 /* AttributedString.swift in Sources */,
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
