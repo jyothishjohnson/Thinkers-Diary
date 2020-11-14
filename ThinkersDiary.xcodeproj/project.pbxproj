@@ -26,6 +26,7 @@
 		22A80BB0254EBBBA00B3B159 /* TabsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BAF254EBBBA00B3B159 /* TabsView.xib */; };
 		22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */; };
 		22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */; };
+		22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */; };
 		22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17B5253ECAC200FDE243 /* LoginViewController.swift */; };
 		22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17B6253ECAC200FDE243 /* LoginViewController.xib */; };
 		22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17BB253ECB7700FDE243 /* HomeViewController.swift */; };
@@ -56,6 +57,7 @@
 		22A80BAF254EBBBA00B3B159 /* TabsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsView.xib; sourceTree = "<group>"; };
 		22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsCollectionViewCell.xib; sourceTree = "<group>"; };
+		22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddRemoveChildVC.swift"; sourceTree = "<group>"; };
 		22EA17B5253ECAC200FDE243 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22EA17B6253ECAC200FDE243 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		22EA17BB253ECB7700FDE243 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				223115A3253EC09D00B85BD4 /* UserDefs.swift */,
 				22EA17C5253EFF2700FDE243 /* AttributedString.swift */,
+				22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */,
 				22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */,
 				22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */,
+				22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */,
 				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
 				22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,

@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         tabsView.datasource = tabsDataSource.map{
             $0?.title ?? ""
         }
-        selectController(at: 0)
+        selectController(at: 0, containerView: containerView)
     }
     
 //    @IBAction func logoutAction(_ sender: UIButton) {
@@ -46,34 +46,12 @@ extension HomeViewController {
     
     private func loadController(at position: Int){
         removeAllChilds {
-            selectController(at: position)
+            selectController(at: position, containerView: containerView)
         }
     }
     
-    func selectController(at position : Int){
-        add(asChildViewController: tabsDataSource[position]!)
-    }
-    
-    private func add(asChildViewController viewController: UIViewController) {
-
-        addChild(viewController)
-        containerView.addSubview(viewController.view)
-        viewController.view.frame = containerView.bounds
-        viewController.didMove(toParent: self)
-    }
-
-
-
-    private func removeAllChilds(_ onCompletion: () -> ()) {
-
-        let viewcontrollers = self.children
-        for viewController in viewcontrollers {
-
-            viewController.willMove(toParent: nil)
-            viewController.view.removeFromSuperview()
-            viewController.removeFromParent()
-        }
-        onCompletion()
+    func selectController(at position : Int, containerView : UIView){
+        add(asChildViewController: tabsDataSource[position]!, containerView: containerView)
     }
 }
 
