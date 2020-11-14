@@ -19,6 +19,7 @@
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
 		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
+		2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428A255FBEEE0010537F /* UIAlertController.swift */; };
 		22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA2254EB37600B3B159 /* NotesViewController.swift */; };
 		22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BA3254EB37600B3B159 /* NotesViewController.xib */; };
 		22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */; };
@@ -50,6 +51,7 @@
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		2286428A255FBEEE0010537F /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		22A80BA2254EB37600B3B159 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		22A80BA3254EB37600B3B159 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
 		22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabDataSource.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				223115A3253EC09D00B85BD4 /* UserDefs.swift */,
 				22EA17C5253EFF2700FDE243 /* AttributedString.swift */,
 				22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */,
+				2286428A255FBEEE0010537F /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
+				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
 				22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */,
 				2231159B253EBC7800B85BD4 /* RootViewController.swift in Sources */,
 				22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */,

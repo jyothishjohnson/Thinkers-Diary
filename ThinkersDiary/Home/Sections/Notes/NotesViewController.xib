@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,6 +26,32 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZC-dK-1zQ" userLabel="topView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVT-8M-RA7">
+                            <rect key="frame" x="366" y="4" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="4De-Od-Ie8"/>
+                                <constraint firstAttribute="width" constant="40" id="WLN-Qx-Etv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal">
+                                <imageReference key="image" image="folder.badge.plus" catalog="system" symbolScale="large" renderingMode="template"/>
+                            </state>
+                            <connections>
+                                <action selector="addFolderButtonAction:" destination="-1" eventType="touchUpInside" id="m0x-V5-w4t"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="zVT-8M-RA7" firstAttribute="centerY" secondItem="OZC-dK-1zQ" secondAttribute="centerY" id="8lA-hX-e0L"/>
+                        <constraint firstAttribute="trailing" secondItem="zVT-8M-RA7" secondAttribute="trailing" constant="8" id="E0F-MY-TTh"/>
+                        <constraint firstAttribute="height" constant="48" id="bMO-zC-rPn"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J20-0i-v6z">
                     <rect key="frame" x="178" y="438" width="58" height="20"/>
                     <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="17"/>
@@ -35,13 +62,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="OZC-dK-1zQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="08P-Zl-qD5"/>
+                <constraint firstItem="OZC-dK-1zQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="09y-lG-0Zr"/>
+                <constraint firstItem="OZC-dK-1zQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="29f-di-VaZ"/>
                 <constraint firstItem="J20-0i-v6z" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7Kl-ap-4aI"/>
                 <constraint firstItem="J20-0i-v6z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eGj-bz-If7"/>
             </constraints>
-            <point key="canvasLocation" x="142" y="106"/>
+            <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
         </view>
     </objects>
     <resources>
+        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
