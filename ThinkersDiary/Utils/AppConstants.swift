@@ -9,6 +9,14 @@ import Foundation
 
 struct GlobalConstants {
     
+    struct NotesVC {
+        
+        struct NotesListCell {
+            
+            static let id = "NotesListCell"
+        }
+    }
+    
     struct Welcome {
         
         static let welcomeString = """

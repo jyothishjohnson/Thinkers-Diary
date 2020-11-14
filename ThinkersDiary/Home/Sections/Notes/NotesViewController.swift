@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
+
 class NotesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -28,7 +30,7 @@ class NotesViewController: UIViewController {
     }
     
     func setUpTableView(){
-        tableView.register(UINib(nibName: "NotesListCell", bundle: .main), forCellReuseIdentifier: "NotesListCell")
+        tableView.register(UINib(nibName: NotesCell.id, bundle: .main), forCellReuseIdentifier: NotesCell.id)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -59,7 +61,7 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NotesListCell", for: indexPath) as! NotesListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
         cell.noteTitle = notes[indexPath.row]
         return cell
     }
