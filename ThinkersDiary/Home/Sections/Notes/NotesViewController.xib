@@ -9,15 +9,10 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Termina Medium.otf">
-            <string>Termina-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotesViewController" customModule="ThinkersDiary" customModuleProvider="target">
             <connections>
-                <outlet property="name" destination="J20-0i-v6z" id="l7U-QG-FI2"/>
+                <outlet property="tableView" destination="Ry3-jr-LWo" id="4h3-hb-Irc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -52,21 +47,21 @@
                         <constraint firstAttribute="height" constant="48" id="bMO-zC-rPn"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J20-0i-v6z">
-                    <rect key="frame" x="178" y="438" width="58" height="20"/>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ry3-jr-LWo">
+                    <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="OZC-dK-1zQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="08P-Zl-qD5"/>
                 <constraint firstItem="OZC-dK-1zQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="09y-lG-0Zr"/>
+                <constraint firstItem="Ry3-jr-LWo" firstAttribute="top" secondItem="OZC-dK-1zQ" secondAttribute="bottom" id="0bf-ic-Rdh"/>
                 <constraint firstItem="OZC-dK-1zQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="29f-di-VaZ"/>
-                <constraint firstItem="J20-0i-v6z" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7Kl-ap-4aI"/>
-                <constraint firstItem="J20-0i-v6z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eGj-bz-If7"/>
+                <constraint firstItem="Ry3-jr-LWo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="73R-7b-Zhw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ry3-jr-LWo" secondAttribute="bottom" id="8aZ-ae-hDx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ry3-jr-LWo" secondAttribute="trailing" id="jGr-ng-uVk"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
         </view>

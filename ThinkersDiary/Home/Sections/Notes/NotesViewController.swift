@@ -9,7 +9,9 @@ import UIKit
 
 class NotesViewController: UIViewController {
     
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var notes  = [String]()
     
     override func viewDidLoad() {
         
@@ -19,21 +21,50 @@ class NotesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        name.text = title
     }
     
     func setUpViews(){
-        
+        setUpTableView()
+    }
+    
+    func setUpTableView(){
+        tableView.register(UINib(nibName: "NotesListCell", bundle: .main), forCellReuseIdentifier: "NotesListCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
     
     @IBAction func addFolderButtonAction(_ sender: UIButton) {
         
         let alert = UIAlertController.promptForFolderName { folderName  in
             if let name = folderName {
-                print(name)
+                self.notes.append(name)
+                self.tableView.reloadData()
             }
         }
         
         present(alert , animated: true)
+    }
+}
+
+extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        notes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NotesListCell", for: indexPath) as! NotesListCell
+        cell.noteTitle = notes[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(notes[indexPath.row])
     }
 }

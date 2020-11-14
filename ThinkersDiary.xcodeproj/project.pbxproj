@@ -22,6 +22,8 @@
 		2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428A255FBEEE0010537F /* UIAlertController.swift */; };
 		22864290255FF96C0010537F /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428E255FF96C0010537F /* RemindersViewController.swift */; };
 		22864291255FF96C0010537F /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286428F255FF96C0010537F /* RemindersViewController.xib */; };
+		2286429F256002CB0010537F /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286429D256002CB0010537F /* NotesListCell.swift */; };
+		228642A0256002CB0010537F /* NotesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286429E256002CB0010537F /* NotesListCell.xib */; };
 		22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA2254EB37600B3B159 /* NotesViewController.swift */; };
 		22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BA3254EB37600B3B159 /* NotesViewController.xib */; };
 		22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */; };
@@ -56,6 +58,8 @@
 		2286428A255FBEEE0010537F /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		2286428E255FF96C0010537F /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		2286428F255FF96C0010537F /* RemindersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
+		2286429D256002CB0010537F /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
+		2286429E256002CB0010537F /* NotesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesListCell.xib; sourceTree = "<group>"; };
 		22A80BA2254EB37600B3B159 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		22A80BA3254EB37600B3B159 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
 		22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabDataSource.swift; sourceTree = "<group>"; };
@@ -178,6 +182,31 @@
 			path = Reminders;
 			sourceTree = "<group>";
 		};
+		2286429A256002430010537F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2286429C256002730010537F /* NotesListCell */,
+				2286429B256002580010537F /* HeaderView */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2286429B256002580010537F /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		2286429C256002730010537F /* NotesListCell */ = {
+			isa = PBXGroup;
+			children = (
+				2286429D256002CB0010537F /* NotesListCell.swift */,
+				2286429E256002CB0010537F /* NotesListCell.xib */,
+			);
+			path = NotesListCell;
+			sourceTree = "<group>";
+		};
 		22A80BA0254EB35100B3B159 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +219,7 @@
 		22A80BA1254EB35F00B3B159 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				2286429A256002430010537F /* Cells */,
 				22A80BA2254EB37600B3B159 /* NotesViewController.swift */,
 				22A80BA3254EB37600B3B159 /* NotesViewController.xib */,
 			);
@@ -322,6 +352,7 @@
 				2231158B253EBB7900B85BD4 /* Main.storyboard in Resources */,
 				22EA17BE253ECB7700FDE243 /* HomeViewController.xib in Resources */,
 				2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */,
+				228642A0256002CB0010537F /* NotesListCell.xib in Resources */,
 				22EA17C3253EF55800FDE243 /* Termina Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +400,7 @@
 				22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */,
 				223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */,
 				22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */,
+				2286429F256002CB0010537F /* NotesListCell.swift in Sources */,
 				22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */,
 				22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */,
 				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
