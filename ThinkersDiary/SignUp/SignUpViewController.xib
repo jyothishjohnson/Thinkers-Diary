@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -43,7 +44,7 @@
                         <constraint firstAttribute="height" constant="44" id="I3w-wP-Nts"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="W5K-60-I4a"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8lE-Gc-t6U" userLabel="password">
@@ -51,7 +52,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="vWy-xl-wiQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-Wg-fjm" userLabel="belowEmail">
@@ -66,7 +67,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="8cV-Hq-Izj"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V85-M6-C5e" userLabel="belowPass">
@@ -82,7 +83,7 @@
                         <constraint firstAttribute="height" constant="44" id="Dl9-Fh-BUE"/>
                         <constraint firstAttribute="width" constant="60" id="Xyb-tn-bYo"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="11"/>
                     <state key="normal" title="SKIP">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -103,7 +104,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="TTV-0t-Bi8"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="14"/>
                     <state key="normal" title="SIGNUP">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -41,7 +42,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="oUL-62-1eg"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-3N-8eo" userLabel="belowEmail">
@@ -56,7 +57,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="ijh-Ht-PQp"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xe-zM-pi2" userLabel="belowPass">
@@ -72,7 +73,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Sg0-cX-ml7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="14"/>
                     <state key="normal" title="LOGIN">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -86,7 +87,7 @@
                         <constraint firstAttribute="width" constant="60" id="0Hn-kH-o6O"/>
                         <constraint firstAttribute="height" constant="44" id="nBh-ay-3JW"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="Termina-Medium" family="Termina" pointSize="12"/>
                     <state key="normal" title="SKIP">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
