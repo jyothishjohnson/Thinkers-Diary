@@ -94,7 +94,7 @@ extension TabsView : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         }
         
         let cell = collectionView.cellForItem(at: indexPath) as? TabsCollectionViewCell
-        cell?.addColor()
+        cell?.addColor(duration: 0.3)
         delegate?.menuDidSelect(position: indexPath.row)
         
         currentIndexPath = indexPath

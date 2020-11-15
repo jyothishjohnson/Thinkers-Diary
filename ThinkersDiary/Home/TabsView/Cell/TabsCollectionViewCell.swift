@@ -11,11 +11,6 @@ class TabsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var cellNameLabel: UILabel!
-    var color : UIColor? {
-        didSet {
-            cellView.backgroundColor = color
-        }
-    }
     
     var cellNameText : String? {
         didSet {
@@ -25,21 +20,21 @@ class TabsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .white
-        self.cellNameLabel.textColor = .black
+        self.backgroundColor = .systemBackground
+        self.cellNameLabel.textColor = UIColor.color(.TabCellLabelColor)
         self.cellView.layer.cornerRadius = 16
-        // Initialization code
+        self.cellView.backgroundColor = UIColor.color(.TabCellColor)
     }
     
     func removeColor(){
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
-            self.cellView.backgroundColor = .white
-            self.cellNameLabel.textColor = .black
+            self.cellView.backgroundColor =  UIColor.color(.TabCellColor)
+            self.cellNameLabel.textColor = UIColor.color(.TabCellLabelColor)
         }
     }
 
-    func addColor(){
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+    func addColor(duration : TimeInterval = 0.0){
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut) {
             self.cellView.backgroundColor = .black
             self.cellNameLabel.textColor = .white
         }
