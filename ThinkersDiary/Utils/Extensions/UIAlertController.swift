@@ -12,7 +12,9 @@ extension UIAlertController {
     static func promptForFolderName(_ completion : @escaping (String?) -> ()) -> UIAlertController{
         
         let ac = UIAlertController(title: "Enter folder name", message: nil, preferredStyle: .alert)
-        ac.addTextField()
+        ac.addTextField { (textField) in
+            textField.autocapitalizationType = .words
+        }
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             let folderTF = ac.textFields![0]
