@@ -102,7 +102,7 @@ class NotesViewController: UIViewController {
 extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50
+        60
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
