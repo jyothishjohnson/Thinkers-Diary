@@ -11,7 +11,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func makeRequest<T: Any>(_ request : URLRequest, resultHandler: @escaping (Result<T,NetworkManagerError>) -> Void){
+    func makeRequest<T: Any>(_ request : URLRequest, resultHandler: @escaping (Result<T,NetworkManagerError>) -> Void) where T: Decodable{
         
         let urlTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
@@ -41,11 +41,11 @@ class NetworkManager {
         urlTask.resume()
     }
     
-    private func decodedData<T: Any>(_ data: Data) -> T? {
+    private func decodedData<T: Any>(_ data: Data) -> T? where T: Decodable{
           if T.self is String.Type {
               return String(data: data, encoding: .utf8) as? T
           } else {
-              return try? JSONSerialization.jsonObject(with: data) as? T
+            return try? JSONDecoder().decode(T.self, from: data)
           }
       }
 }

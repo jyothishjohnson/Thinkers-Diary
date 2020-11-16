@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct Note {
+struct Note: Decodable {
     
     var id : String?
     var content : String?
+}
+
+struct PaginatedNotes: Decodable {
+    
+    var items : [Note]?
 }

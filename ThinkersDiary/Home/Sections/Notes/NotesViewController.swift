@@ -8,6 +8,7 @@
 import UIKit
 
 typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
+typealias EP = GlobalConstants.EndPoints
 
 class NotesViewController: UIViewController {
     
@@ -54,18 +55,20 @@ class NotesViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    func loadUserData(){
-        let url = URL(string: "http://192.168.43.228:8080/user/todos/all")!
+    func loadUserData(for page : Int = 1, with rows : Int = 20){
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.todosEndpoint)?page=\(page)&per=\(rows)")!
+        
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
         
         let service = NetworkManager.shared
-        service.makeRequest(request) { (result: Result<[Note],NetworkManagerError>) in
+        service.makeRequest(request) { (result: Result<PaginatedNotes,NetworkManagerError>) in
             
             switch result {
                 
             case .success(let notes):
-                self.notes = notes
+                self.notes = notes.items ?? []
                 DispatchQueue.main.async {
                     self.reloadNotesTableView()
                 }

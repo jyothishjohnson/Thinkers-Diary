@@ -9,6 +9,15 @@ import Foundation
 
 struct GlobalConstants {
     
+    struct EndPoints {
+        static let localBaseURL = "http://localhost:8080"
+        static let ipBaseURL = "http://192.168.43.228:8080"
+        
+        static let userEndPoint = "/user"
+        static let todosEndpoint = "/todos"
+    }
+    
+    
     struct NotesVC {
         
         struct NotesListCell {
