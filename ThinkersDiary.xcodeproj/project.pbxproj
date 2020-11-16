@@ -19,6 +19,8 @@
 		2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2231159A253EBC7700B85BD4 /* RootViewController.xib */; };
 		223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A3253EC09D00B85BD4 /* UserDefs.swift */; };
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
+		225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC80C256250B200FBE427 /* NetworkManager.swift */; };
+		225DC81225625DF200FBE427 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC81125625DF200FBE427 /* Note.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
 		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
 		2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428A255FBEEE0010537F /* UIAlertController.swift */; };
@@ -57,6 +59,8 @@
 		2231159A253EBC7700B85BD4 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		223115A3253EC09D00B85BD4 /* UserDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefs.swift; sourceTree = "<group>"; };
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		225DC80C256250B200FBE427 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		225DC81125625DF200FBE427 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		2286428A255FBEEE0010537F /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		22311582253EBB7800B85BD4 /* ThinkersDiary */ = {
 			isa = PBXGroup;
 			children = (
+				225DC80F25625DD700FBE427 /* Models */,
 				223115A6253EC35000B85BD4 /* Utils */,
 				22311598253EBC5E00B85BD4 /* Root */,
 				2274B3392546AB43006E8CA9 /* SignUp */,
@@ -166,8 +171,25 @@
 				223115A2253EC06600B85BD4 /* Extensions */,
 				223115A7253EC36100B85BD4 /* AppConstants.swift */,
 				2226032225615A9000A93DD6 /* CustomColors.swift */,
+				225DC80C256250B200FBE427 /* NetworkManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		225DC80F25625DD700FBE427 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				225DC81025625DE100FBE427 /* Notes */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		225DC81025625DE100FBE427 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				225DC81125625DF200FBE427 /* Note.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 		2274B3392546AB43006E8CA9 /* SignUp */ = {
@@ -397,6 +419,7 @@
 			files = (
 				2226032625615AC600A93DD6 /* UIColor+DarkMode.swift in Sources */,
 				22864290255FF96C0010537F /* RemindersViewController.swift in Sources */,
+				225DC81225625DF200FBE427 /* Note.swift in Sources */,
 				22EA17C6253EFF2700FDE243 /* AttributedString.swift in Sources */,
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
@@ -407,6 +430,7 @@
 				22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */,
 				223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */,
 				22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */,
+				225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */,
 				2286429F256002CB0010537F /* NotesListCell.swift in Sources */,
 				22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */,
 				22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */,
