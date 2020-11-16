@@ -5,8 +5,6 @@
 //  Created by jyothish.johnson on 16/11/20.
 //
 
-import Foundation
-
 struct Note: Decodable {
     
     var id : String?

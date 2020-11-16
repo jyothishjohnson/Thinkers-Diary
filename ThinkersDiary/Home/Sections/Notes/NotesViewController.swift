@@ -16,11 +16,17 @@ class NotesViewController: UIViewController {
     
     var notes  = [Note]()
     
+    let service = NetworkManager.shared
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setUpViews()
         loadUserData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
     }
     
     @IBAction func addFolderButtonAction(_ sender: UIButton) {
@@ -29,19 +35,19 @@ class NotesViewController: UIViewController {
             if let name = folderName {
                 
                 var note = Note()
-                note.id = UUID().uuidString
                 note.content = name
                 
-                self.notes.append(note)
-                self.tableView.reloadData()
+                self.notes.insert(note, at: 0)
+                DispatchQueue.main.async {
+                    self.reloadNotesTableView(withScroll: true)
+                }
+                
+                let uploadNote = UploadNote(content: name)
+                self.uploadNewNote(note: uploadNote)
             }
         }
         
         present(alert , animated: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print(#function)
     }
     
     func setUpViews(){
@@ -55,6 +61,34 @@ class NotesViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
+    func uploadNewNote(note: UploadNote){
+        
+        let data = try? JSONEncoder().encode(note)
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.postTodoEndpoint)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = NetworkMethods.POST.rawValue
+        request.httpBody = data
+        
+        service.makeRequest(request) { [weak self] (result: Result<Note, NetworkManagerError>) in
+            
+            switch result {
+            
+            case .success(let note):
+                
+                print(note)
+                self?.updateNewNoteId(id: note.id ?? "")
+                
+            case .failure(let error):
+                
+                print(error.rawValue)
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
     func loadUserData(for page : Int = 1, with rows : Int = 20){
         
         let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.todosEndpoint)?page=\(page)&per=\(rows)")!
@@ -62,11 +96,10 @@ class NotesViewController: UIViewController {
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
         
-        let service = NetworkManager.shared
         service.makeRequest(request) { (result: Result<PaginatedNotes,NetworkManagerError>) in
             
             switch result {
-                
+            
             case .success(let notes):
                 self.notes = notes.items ?? []
                 DispatchQueue.main.async {
@@ -74,31 +107,30 @@ class NotesViewController: UIViewController {
                 }
                 
             case .failure(let error):
-                switch error {
-                
-                case .NoData:
-                    print("no data")
-                case .ServerError:
-                    print("server")
-                case .Forbidden:
-                    print("forbidden")
-                case .DataDecodingError:
-                    print("data decoding")
-                case .UnknownError:
-                    print("unknown")
-                }
+                print(error.rawValue)
                 print(error.localizedDescription)
             }
         }
         
     }
     
-    func reloadNotesTableView(){
+    func updateNewNoteId(id : String){
+        
+        notes[notes.count - 1].id = id
+    }
+    
+    func reloadNotesTableView(withScroll : Bool = false){
+        
         self.tableView.reloadData()
+        
+        if withScroll {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
     }
     
 }
 
+//MARK: - TableView delegate & datasource
 extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

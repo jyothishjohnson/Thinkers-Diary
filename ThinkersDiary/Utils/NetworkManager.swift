@@ -13,7 +13,12 @@ class NetworkManager {
     
     func makeRequest<T: Any>(_ request : URLRequest, resultHandler: @escaping (Result<T,NetworkManagerError>) -> Void) where T: Decodable{
         
-        let urlTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        var urlRequest = request
+        if urlRequest.httpBody != nil {
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        let urlTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 resultHandler(.failure(.UnknownError))
                 return
@@ -50,7 +55,7 @@ class NetworkManager {
       }
 }
 
-enum NetworkManagerError: Error{
+enum NetworkManagerError: String, Error{
     
     case NoData
     case ServerError

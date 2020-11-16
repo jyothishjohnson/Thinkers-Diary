@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10F86346440C338098C79620 /* Pods_ThinkersDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE6913A637E343BFC8F1739 /* Pods_ThinkersDiary.framework */; };
+		22002B042562B160002B419E /* UploadNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22002B032562B160002B419E /* UploadNote.swift */; };
 		2226032325615A9000A93DD6 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226032225615A9000A93DD6 /* CustomColors.swift */; };
 		2226032625615AC600A93DD6 /* UIColor+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226032525615AC600A93DD6 /* UIColor+DarkMode.swift */; };
 		22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22311583253EBB7900B85BD4 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0C807D26E71FBF042C6C4DE0 /* Pods-ThinkersDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkersDiary.debug.xcconfig"; path = "Target Support Files/Pods-ThinkersDiary/Pods-ThinkersDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		22002B032562B160002B419E /* UploadNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNote.swift; sourceTree = "<group>"; };
 		2226032225615A9000A93DD6 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2226032525615AC600A93DD6 /* UIColor+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DarkMode.swift"; sourceTree = "<group>"; };
 		22311580253EBB7800B85BD4 /* ThinkersDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkersDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				225DC81125625DF200FBE427 /* Note.swift */,
+				22002B032562B160002B419E /* UploadNote.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
 				22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */,
 				2226032325615A9000A93DD6 /* CustomColors.swift in Sources */,
+				22002B042562B160002B419E /* UploadNote.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

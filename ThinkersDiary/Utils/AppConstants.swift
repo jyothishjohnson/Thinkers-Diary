@@ -15,6 +15,7 @@ struct GlobalConstants {
         
         static let userEndPoint = "/user"
         static let todosEndpoint = "/todos"
+        static let postTodoEndpoint = "/todo"
     }
     
     
