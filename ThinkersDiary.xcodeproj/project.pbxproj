@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		225DC81225625DF200FBE427 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC81125625DF200FBE427 /* Note.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
 		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
+		2274EB422567EC9500835444 /* plane.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2274EB412567EC9500835444 /* plane.gif */; };
 		2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428A255FBEEE0010537F /* UIAlertController.swift */; };
 		22864290255FF96C0010537F /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428E255FF96C0010537F /* RemindersViewController.swift */; };
 		22864291255FF96C0010537F /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286428F255FF96C0010537F /* RemindersViewController.xib */; };
@@ -65,6 +66,7 @@
 		225DC81125625DF200FBE427 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		2274EB412567EC9500835444 /* plane.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = plane.gif; sourceTree = "<group>"; };
 		2286428A255FBEEE0010537F /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		2286428E255FF96C0010537F /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		2286428F255FF96C0010537F /* RemindersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		223115A0253EBEF800B85BD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2274EB412567EC9500835444 /* plane.gif */,
 				22EA17C2253EF55800FDE243 /* Termina Medium.otf */,
 				22311583253EBB7900B85BD4 /* AppDelegate.swift */,
 				22311585253EBB7900B85BD4 /* SceneDelegate.swift */,
@@ -382,6 +385,7 @@
 				2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */,
 				2231158B253EBB7900B85BD4 /* Main.storyboard in Resources */,
 				22EA17BE253ECB7700FDE243 /* HomeViewController.xib in Resources */,
+				2274EB422567EC9500835444 /* plane.gif in Resources */,
 				2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */,
 				228642A0256002CB0010537F /* NotesListCell.xib in Resources */,
 				22EA17C3253EF55800FDE243 /* Termina Medium.otf in Resources */,
