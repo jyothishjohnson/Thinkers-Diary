@@ -61,6 +61,66 @@ class NotesViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
+    func updateNewNoteId(id : String){
+        
+        notes[notes.count - 1].id = id
+    }
+    
+    func reloadNotesTableView(withScroll : Bool = false){
+        
+        self.tableView.reloadData()
+        
+        if withScroll {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
+    }
+    
+}
+
+//MARK: - TableView delegate & datasource
+extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        notes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
+        cell.noteTitle = notes[indexPath.row].content
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(notes[indexPath.row])
+    }
+    
+    //MARK: - Remove Note
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let row = indexPath.row
+            
+            let note = notes[row]
+            let delNote = DeleteNote(id: note.id ?? "")
+            
+            notes.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            deleteNote(note: delNote)
+        }
+    }
+}
+
+
+//MARK: - API Calls
+extension NotesViewController {
+    
     func uploadNewNote(note: UploadNote){
         
         let data = try? JSONEncoder().encode(note)
@@ -114,41 +174,30 @@ class NotesViewController: UIViewController {
         
     }
     
-    func updateNewNoteId(id : String){
+    func deleteNote(note : DeleteNote){
         
-        notes[notes.count - 1].id = id
-    }
-    
-    func reloadNotesTableView(withScroll : Bool = false){
+        let data = try? JSONEncoder().encode(note)
         
-        self.tableView.reloadData()
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.deleteTodoEndpoint)")!
         
-        if withScroll {
-            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        var request = URLRequest(url: url)
+        request.httpMethod = NetworkMethods.DELETE.rawValue
+        request.httpBody = data
+        
+        service.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+            
+            switch result {
+            
+            case .success(let code):
+                
+                print(code)
+                
+            case .failure(let error):
+                
+                print(error.rawValue)
+                print(error.localizedDescription)
+            }
         }
-    }
-    
-}
-
-//MARK: - TableView delegate & datasource
-extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        notes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
-        cell.noteTitle = notes[indexPath.row].content
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(notes[indexPath.row])
     }
 }
