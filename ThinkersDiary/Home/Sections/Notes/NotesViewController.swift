@@ -14,6 +14,14 @@ class NotesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh),for: .valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    
     var notes  = [Note]()
     
     let service = NetworkManager.shared
@@ -59,6 +67,7 @@ class NotesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.addSubview(self.refreshControl)
     }
     
     func updateNewNoteId(id : String){
@@ -149,7 +158,7 @@ extension NotesViewController {
         
     }
     
-    func loadUserData(for page : Int = 1, with rows : Int = 20){
+    func loadUserData(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
         let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.todosEndpoint)?page=\(page)&per=\(rows)")!
         
@@ -169,6 +178,12 @@ extension NotesViewController {
             case .failure(let error):
                 print(error.rawValue)
                 print(error.localizedDescription)
+            }
+            
+            if isFromRefresh {
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                }
             }
         }
         
@@ -199,5 +214,13 @@ extension NotesViewController {
             }
         }
         
+    }
+}
+
+extension NotesViewController {
+    
+    @objc func handleRefresh() {
+        self.refreshControl.beginRefreshing()
+        loadUserData(isFromRefresh: true)
     }
 }
