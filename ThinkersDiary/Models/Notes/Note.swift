@@ -8,7 +8,9 @@
 struct Note: Decodable {
     
     var id : String?
+    var name : String?
     var content : String?
+    
 }
 
 struct PaginatedNotes: Decodable {

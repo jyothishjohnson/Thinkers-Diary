@@ -14,9 +14,13 @@ struct GlobalConstants {
         static let ipBaseURL = "http://192.168.43.228:8080"
         
         static let userEndPoint = "/user"
-        static let todosEndpoint = "/todos"
-        static let postTodoEndpoint = "/todo"
-        static let deleteTodoEndpoint = "/todo/delete"
+        static let notesEndpoint = "/notes"
+        static let noteEndpoint = "/note"
+        
+        static let addNewNote = "\(userEndPoint)\(noteEndpoint)/new"
+        static let deleteNote = "\(userEndPoint)\(noteEndpoint)/delete"
+        static let paginatedNotes = "\(userEndPoint)\(notesEndpoint)"
+        static let allUserNotes = "\(userEndPoint)\(notesEndpoint)/all"
     }
     
     

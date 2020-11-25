@@ -10,6 +10,8 @@ import UIKit
 typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
 typealias EP = GlobalConstants.EndPoints
 
+let FOLDER_ID = "5350afcb-61ab-45ed-859f-15d69dd4d745"
+
 class NotesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,7 +19,7 @@ class NotesViewController: UIViewController {
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh),for: .valueChanged)
-        refreshControl.tintColor = UIColor.red
+        refreshControl.tintColor = #colorLiteral(red: 0, green: 0.6366431752, blue: 1, alpha: 1)
         
         return refreshControl
     }()
@@ -43,14 +45,14 @@ class NotesViewController: UIViewController {
             if let name = folderName {
                 
                 var note = Note()
-                note.content = name
+                note.name = name
                 
                 self.notes.insert(note, at: 0)
                 DispatchQueue.main.async {
                     self.reloadNotesTableView(withScroll: true)
                 }
                 
-                let uploadNote = UploadNote(content: name)
+                let uploadNote = UploadNote(name: name, folderId: FOLDER_ID)
                 self.uploadNewNote(note: uploadNote)
             }
         }
@@ -72,7 +74,7 @@ class NotesViewController: UIViewController {
     
     func updateNewNoteId(id : String){
         
-        notes[notes.count - 1].id = id
+        self.notes[0].id = id
     }
     
     func reloadNotesTableView(withScroll : Bool = false){
@@ -100,7 +102,7 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
-        cell.noteTitle = notes[indexPath.row].content
+        cell.noteTitle = notes[indexPath.row].name
         return cell
     }
     
@@ -134,7 +136,7 @@ extension NotesViewController {
         
         let data = try? JSONEncoder().encode(note)
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.postTodoEndpoint)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewNote)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.POST.rawValue
@@ -160,7 +162,7 @@ extension NotesViewController {
     
     func loadUserData(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.todosEndpoint)?page=\(page)&per=\(rows)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.paginatedNotes)?page=\(page)&per=\(rows)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
@@ -193,7 +195,7 @@ extension NotesViewController {
         
         let data = try? JSONEncoder().encode(note)
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.userEndPoint)\(EP.deleteTodoEndpoint)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteNote)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.DELETE.rawValue
@@ -217,6 +219,7 @@ extension NotesViewController {
     }
 }
 
+//MARK: - Refresh Notes
 extension NotesViewController {
     
     @objc func handleRefresh() {
