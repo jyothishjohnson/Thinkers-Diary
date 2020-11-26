@@ -46,13 +46,14 @@ class NotesViewController: UIViewController {
                 
                 var note = Note()
                 note.name = name
+                note.id = UUID().uuidString
                 
                 self.notes.insert(note, at: 0)
                 DispatchQueue.main.async {
                     self.reloadNotesTableView(withScroll: true)
                 }
                 
-                let uploadNote = UploadNote(name: name, folderId: FOLDER_ID)
+                let uploadNote = UploadNote(id: note.id!, name: name, folderId: FOLDER_ID)
                 self.uploadNewNote(note: uploadNote)
             }
         }
@@ -71,12 +72,7 @@ class NotesViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.addSubview(self.refreshControl)
     }
-    
-    func updateNewNoteId(id : String){
-        
-        self.notes[0].id = id
-    }
-    
+
     func reloadNotesTableView(withScroll : Bool = false){
         
         self.tableView.reloadData()
@@ -142,14 +138,13 @@ extension NotesViewController {
         request.httpMethod = NetworkMethods.POST.rawValue
         request.httpBody = data
         
-        service.makeRequest(request) { [weak self] (result: Result<Note, NetworkManagerError>) in
+        service.makeRequest(request) { (result: Result<Note, NetworkManagerError>) in
             
             switch result {
             
             case .success(let note):
                 
                 print(note)
-                self?.updateNewNoteId(id: note.id ?? "")
                 
             case .failure(let error):
                 

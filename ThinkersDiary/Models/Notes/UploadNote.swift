@@ -7,6 +7,7 @@
 
 struct UploadNote: Encodable {
     
+    var id : String
     var name : String
     var folderId : String
 }
