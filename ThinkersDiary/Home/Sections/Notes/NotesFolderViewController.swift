@@ -7,7 +7,6 @@
 
 import UIKit
 
-typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
 typealias FoldersCell = GlobalConstants.NotesVC.FolderListCell
 typealias EP = GlobalConstants.EndPoints
 typealias Folder = FolderResponseDTO
@@ -106,7 +105,13 @@ extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(folders[indexPath.row])
+        print(indexPath.row)
+        
+        let vc = NotesListVC(nibName: "NotesListVC", bundle: .main)
+        vc.modalPresentationStyle = .fullScreen
+        DispatchQueue.main.async {
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     //MARK: - Remove Note

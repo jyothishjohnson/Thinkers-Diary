@@ -22,6 +22,8 @@
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
 		224FFE2F2572203A00DCFA94 /* NewFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */; };
 		224FFE322572237D00DCFA94 /* DeleteFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */; };
+		224FFE3E25729A7A00DCFA94 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */; };
+		224FFE3F25729A7A00DCFA94 /* NotesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224FFE3D25729A7A00DCFA94 /* NotesListVC.xib */; };
 		225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC80C256250B200FBE427 /* NetworkManager.swift */; };
 		225DC81225625DF200FBE427 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC81125625DF200FBE427 /* Note.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
@@ -69,6 +71,8 @@
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolderRequestDTO.swift; sourceTree = "<group>"; };
 		224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFolderRequestDTO.swift; sourceTree = "<group>"; };
+		224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
+		224FFE3D25729A7A00DCFA94 /* NotesListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesListVC.xib; sourceTree = "<group>"; };
 		225DC80C256250B200FBE427 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		225DC81125625DF200FBE427 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		224FFE392572991300DCFA94 /* NotesListVC */ = {
+			isa = PBXGroup;
+			children = (
+				2286429C256002730010537F /* NotesListCell */,
+				224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */,
+				224FFE3D25729A7A00DCFA94 /* NotesListVC.xib */,
+			);
+			path = NotesListVC;
+			sourceTree = "<group>";
+		};
 		225DC80F25625DD700FBE427 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				228900B3256F8FE30049D07C /* FolderListCell */,
-				2286429C256002730010537F /* NotesListCell */,
 				2286429B256002580010537F /* HeaderView */,
 			);
 			path = Cells;
@@ -275,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				2286429A256002430010537F /* Cells */,
+				224FFE392572991300DCFA94 /* NotesListVC */,
 				22A80BA2254EB37600B3B159 /* NotesFolderViewController.swift */,
 				22A80BA3254EB37600B3B159 /* NotesFolderViewController.xib */,
 			);
@@ -410,6 +424,7 @@
 				22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */,
 				22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */,
 				22311590253EBB7900B85BD4 /* LaunchScreen.storyboard in Resources */,
+				224FFE3F25729A7A00DCFA94 /* NotesListVC.xib in Resources */,
 				22864291255FF96C0010537F /* RemindersViewController.xib in Resources */,
 				228900B7256F90090049D07C /* FolderListCell.xib in Resources */,
 				22A80BA5254EB37600B3B159 /* NotesFolderViewController.xib in Resources */,
@@ -481,6 +496,7 @@
 				22BE86CC25714C6200BAC9D7 /* FolderResponseDTO.swift in Sources */,
 				2226032325615A9000A93DD6 /* CustomColors.swift in Sources */,
 				22002B042562B160002B419E /* UploadNote.swift in Sources */,
+				224FFE3E25729A7A00DCFA94 /* NotesListVC.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
