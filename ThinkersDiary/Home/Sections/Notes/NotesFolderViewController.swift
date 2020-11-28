@@ -51,7 +51,7 @@ class NotesFolderViewController: UIViewController {
                 
                 self.folders.insert(folder, at: 0)
                 DispatchQueue.main.async {
-                    self.reloadNotesTableView(withScroll: true)
+                    self.reloadFoldersTableView(withScroll: true)
                 }
                 
                 let newFolder = NewFolder(id: folder.id!, name: name)
@@ -75,7 +75,7 @@ class NotesFolderViewController: UIViewController {
         tableView.addSubview(self.refreshControl)
     }
 
-    func reloadNotesTableView(withScroll : Bool = false){
+    func reloadFoldersTableView(withScroll : Bool = false){
         
         self.tableView.reloadData()
         
@@ -177,7 +177,7 @@ extension NotesFolderViewController {
             case .success(let folders):
                 self.folders = folders
                 DispatchQueue.main.async {
-                    self.reloadNotesTableView()
+                    self.reloadFoldersTableView()
                 }
                 
             case .failure(let error):
