@@ -20,6 +20,8 @@
 		2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2231159A253EBC7700B85BD4 /* RootViewController.xib */; };
 		223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A3253EC09D00B85BD4 /* UserDefs.swift */; };
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
+		224FFE2F2572203A00DCFA94 /* NewFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */; };
+		224FFE322572237D00DCFA94 /* DeleteFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */; };
 		225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC80C256250B200FBE427 /* NetworkManager.swift */; };
 		225DC81225625DF200FBE427 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC81125625DF200FBE427 /* Note.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
@@ -29,15 +31,18 @@
 		22864291255FF96C0010537F /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286428F255FF96C0010537F /* RemindersViewController.xib */; };
 		2286429F256002CB0010537F /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286429D256002CB0010537F /* NotesListCell.swift */; };
 		228642A0256002CB0010537F /* NotesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286429E256002CB0010537F /* NotesListCell.xib */; };
+		228900B6256F90090049D07C /* FolderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228900B4256F90090049D07C /* FolderListCell.swift */; };
+		228900B7256F90090049D07C /* FolderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228900B5256F90090049D07C /* FolderListCell.xib */; };
 		22A5666F256A90F700DAE7B6 /* DeleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A5666E256A90F700DAE7B6 /* DeleteNote.swift */; };
-		22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA2254EB37600B3B159 /* NotesViewController.swift */; };
-		22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BA3254EB37600B3B159 /* NotesViewController.xib */; };
+		22A80BA4254EB37600B3B159 /* NotesFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA2254EB37600B3B159 /* NotesFolderViewController.swift */; };
+		22A80BA5254EB37600B3B159 /* NotesFolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BA3254EB37600B3B159 /* NotesFolderViewController.xib */; };
 		22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */; };
 		22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BAB254EBB8900B3B159 /* TabsView.swift */; };
 		22A80BB0254EBBBA00B3B159 /* TabsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BAF254EBBBA00B3B159 /* TabsView.xib */; };
 		22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */; };
 		22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */; };
 		22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */; };
+		22BE86CC25714C6200BAC9D7 /* FolderResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */; };
 		22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17B5253ECAC200FDE243 /* LoginViewController.swift */; };
 		22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17B6253ECAC200FDE243 /* LoginViewController.xib */; };
 		22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17BB253ECB7700FDE243 /* HomeViewController.swift */; };
@@ -62,6 +67,8 @@
 		2231159A253EBC7700B85BD4 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		223115A3253EC09D00B85BD4 /* UserDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefs.swift; sourceTree = "<group>"; };
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolderRequestDTO.swift; sourceTree = "<group>"; };
+		224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFolderRequestDTO.swift; sourceTree = "<group>"; };
 		225DC80C256250B200FBE427 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		225DC81125625DF200FBE427 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -71,15 +78,18 @@
 		2286428F255FF96C0010537F /* RemindersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
 		2286429D256002CB0010537F /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
 		2286429E256002CB0010537F /* NotesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesListCell.xib; sourceTree = "<group>"; };
+		228900B4256F90090049D07C /* FolderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListCell.swift; sourceTree = "<group>"; };
+		228900B5256F90090049D07C /* FolderListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderListCell.xib; sourceTree = "<group>"; };
 		22A5666E256A90F700DAE7B6 /* DeleteNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteNote.swift; sourceTree = "<group>"; };
-		22A80BA2254EB37600B3B159 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		22A80BA3254EB37600B3B159 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
+		22A80BA2254EB37600B3B159 /* NotesFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesFolderViewController.swift; sourceTree = "<group>"; };
+		22A80BA3254EB37600B3B159 /* NotesFolderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesFolderViewController.xib; sourceTree = "<group>"; };
 		22A80BA7254EB74800B3B159 /* HomeTabDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabDataSource.swift; sourceTree = "<group>"; };
 		22A80BAB254EBB8900B3B159 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		22A80BAF254EBBBA00B3B159 /* TabsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsView.xib; sourceTree = "<group>"; };
 		22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsCollectionViewCell.xib; sourceTree = "<group>"; };
 		22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddRemoveChildVC.swift"; sourceTree = "<group>"; };
+		22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderResponseDTO.swift; sourceTree = "<group>"; };
 		22EA17B5253ECAC200FDE243 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22EA17B6253ECAC200FDE243 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		22EA17BB253ECB7700FDE243 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +193,7 @@
 		225DC80F25625DD700FBE427 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				22BE86CA25714A2F00BAC9D7 /* Folders */,
 				225DC81025625DE100FBE427 /* Notes */,
 			);
 			path = Models;
@@ -219,6 +230,7 @@
 		2286429A256002430010537F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				228900B3256F8FE30049D07C /* FolderListCell */,
 				2286429C256002730010537F /* NotesListCell */,
 				2286429B256002580010537F /* HeaderView */,
 			);
@@ -241,6 +253,15 @@
 			path = NotesListCell;
 			sourceTree = "<group>";
 		};
+		228900B3256F8FE30049D07C /* FolderListCell */ = {
+			isa = PBXGroup;
+			children = (
+				228900B4256F90090049D07C /* FolderListCell.swift */,
+				228900B5256F90090049D07C /* FolderListCell.xib */,
+			);
+			path = FolderListCell;
+			sourceTree = "<group>";
+		};
 		22A80BA0254EB35100B3B159 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,8 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				2286429A256002430010537F /* Cells */,
-				22A80BA2254EB37600B3B159 /* NotesViewController.swift */,
-				22A80BA3254EB37600B3B159 /* NotesViewController.xib */,
+				22A80BA2254EB37600B3B159 /* NotesFolderViewController.swift */,
+				22A80BA3254EB37600B3B159 /* NotesFolderViewController.xib */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -277,6 +298,16 @@
 				22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		22BE86CA25714A2F00BAC9D7 /* Folders */ = {
+			isa = PBXGroup;
+			children = (
+				22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */,
+				224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */,
+				224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */,
+			);
+			path = Folders;
 			sourceTree = "<group>";
 		};
 		22EA17B4253ECAA900FDE243 /* Login */ = {
@@ -380,7 +411,8 @@
 				22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */,
 				22311590253EBB7900B85BD4 /* LaunchScreen.storyboard in Resources */,
 				22864291255FF96C0010537F /* RemindersViewController.xib in Resources */,
-				22A80BA5254EB37600B3B159 /* NotesViewController.xib in Resources */,
+				228900B7256F90090049D07C /* FolderListCell.xib in Resources */,
+				22A80BA5254EB37600B3B159 /* NotesFolderViewController.xib in Resources */,
 				2231158D253EBB7900B85BD4 /* Assets.xcassets in Resources */,
 				2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */,
 				2231158B253EBB7900B85BD4 /* Main.storyboard in Resources */,
@@ -430,19 +462,23 @@
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
+				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
 				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
 				22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */,
 				2231159B253EBC7800B85BD4 /* RootViewController.swift in Sources */,
 				22A80BAC254EBB8900B3B159 /* TabsView.swift in Sources */,
 				223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */,
 				22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */,
+				224FFE2F2572203A00DCFA94 /* NewFolderRequestDTO.swift in Sources */,
 				22A5666F256A90F700DAE7B6 /* DeleteNote.swift in Sources */,
 				225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */,
 				2286429F256002CB0010537F /* NotesListCell.swift in Sources */,
-				22A80BA4254EB37600B3B159 /* NotesViewController.swift in Sources */,
+				22A80BA4254EB37600B3B159 /* NotesFolderViewController.swift in Sources */,
 				22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */,
 				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
 				22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */,
+				224FFE322572237D00DCFA94 /* DeleteFolderRequestDTO.swift in Sources */,
+				22BE86CC25714C6200BAC9D7 /* FolderResponseDTO.swift in Sources */,
 				2226032325615A9000A93DD6 /* CustomColors.swift in Sources */,
 				22002B042562B160002B419E /* UploadNote.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,
@@ -594,7 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2S498RPXZ;
+				DEVELOPMENT_TEAM = 54958LAJ8F;
 				INFOPLIST_FILE = ThinkersDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,7 +651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2S498RPXZ;
+				DEVELOPMENT_TEAM = 54958LAJ8F;
 				INFOPLIST_FILE = ThinkersDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

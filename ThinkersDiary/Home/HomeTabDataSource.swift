@@ -14,7 +14,7 @@ class HomeTabDataSource {
     
     lazy var notesController : UIViewController = {
         
-        let controller = NotesViewController(nibName: "NotesViewController", bundle: nil)
+        let controller = NotesFolderViewController(nibName: "NotesFolderViewController", bundle: nil)
         controller.title = "Notes"
         return controller
     }()

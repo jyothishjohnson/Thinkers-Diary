@@ -16,11 +16,16 @@ struct GlobalConstants {
         static let userEndPoint = "/user"
         static let notesEndpoint = "/notes"
         static let noteEndpoint = "/note"
+        static let folderEndpoint = "/folder"
+        static let foldersEndpoint = "/folders"
         
         static let addNewNote = "\(userEndPoint)\(noteEndpoint)/new"
         static let deleteNote = "\(userEndPoint)\(noteEndpoint)/delete"
         static let paginatedNotes = "\(userEndPoint)\(notesEndpoint)"
         static let allUserNotes = "\(userEndPoint)\(notesEndpoint)/all"
+        static let allUserFolders = "\(userEndPoint)\(foldersEndpoint)/all"
+        static let addNewFolder = "\(userEndPoint)\(folderEndpoint)/new"
+        static let deleteFolder = "\(userEndPoint)\(folderEndpoint)/delete"
     }
     
     
@@ -29,6 +34,10 @@ struct GlobalConstants {
         struct NotesListCell {
             
             static let id = "NotesListCell"
+        }
+        
+        struct FolderListCell {
+            static let id = "FolderListCell"
         }
     }
     

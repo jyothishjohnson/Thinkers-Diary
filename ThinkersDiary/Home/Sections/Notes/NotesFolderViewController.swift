@@ -8,11 +8,13 @@
 import UIKit
 
 typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
+typealias FoldersCell = GlobalConstants.NotesVC.FolderListCell
 typealias EP = GlobalConstants.EndPoints
+typealias Folder = FolderResponseDTO
+typealias NewFolder = NewFolderRequestDTO
+typealias DeleteFolder = DeleteFolderRequestDTO
 
-let FOLDER_ID = "5350afcb-61ab-45ed-859f-15d69dd4d745"
-
-class NotesViewController: UIViewController {
+class NotesFolderViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +26,7 @@ class NotesViewController: UIViewController {
         return refreshControl
     }()
     
-    var notes  = [Note]()
+    var folders  = [Folder]()
     
     let service = NetworkManager.shared
     
@@ -32,7 +34,7 @@ class NotesViewController: UIViewController {
         
         super.viewDidLoad()
         setUpViews()
-        loadUserData()
+        loadUserFolders()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,17 +46,18 @@ class NotesViewController: UIViewController {
         let alert = UIAlertController.promptForFolderName { folderName  in
             if let name = folderName {
                 
-                var note = Note()
-                note.name = name
-                note.id = UUID().uuidString
+                var folder = Folder()
+                folder.name = name
+                folder.id = UUID().uuidString
                 
-                self.notes.insert(note, at: 0)
+                self.folders.insert(folder, at: 0)
                 DispatchQueue.main.async {
                     self.reloadNotesTableView(withScroll: true)
                 }
                 
-                let uploadNote = UploadNote(id: note.id!, name: name, folderId: FOLDER_ID)
-                self.uploadNewNote(note: uploadNote)
+                let newFolder = NewFolder(id: folder.id!, name: name)
+                
+                self.addNewFolder(note: newFolder)
             }
         }
         
@@ -66,7 +69,7 @@ class NotesViewController: UIViewController {
     }
     
     func setUpTableView(){
-        tableView.register(UINib(nibName: NotesCell.id, bundle: .main), forCellReuseIdentifier: NotesCell.id)
+        tableView.register(UINib(nibName: FoldersCell.id, bundle: .main), forCellReuseIdentifier: FoldersCell.id)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -85,25 +88,25 @@ class NotesViewController: UIViewController {
 }
 
 //MARK: - TableView delegate & datasource
-extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
+extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        notes.count
+        folders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
-        cell.noteTitle = notes[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: FoldersCell.id, for: indexPath) as! FolderListCell
+        cell.folderName = folders[indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(notes[indexPath.row])
+        print(folders[indexPath.row])
     }
     
     //MARK: - Remove Note
@@ -112,39 +115,39 @@ extension NotesViewController : UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             
             let row = indexPath.row
-            
-            let note = notes[row]
-            let delNote = DeleteNote(id: note.id ?? "")
-            
-            notes.remove(at: row)
+
+            let folder = folders[row]
+            let delFolder = DeleteFolder(id: folder.id ?? "")
+
+            folders.remove(at: row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            deleteNote(note: delNote)
+
+            deleteFolder(folder: delFolder)
         }
     }
 }
 
 
 //MARK: - API Calls
-extension NotesViewController {
+extension NotesFolderViewController {
     
-    func uploadNewNote(note: UploadNote){
+    func addNewFolder(note: NewFolder){
         
         let data = try? JSONEncoder().encode(note)
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewNote)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewFolder)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.POST.rawValue
         request.httpBody = data
         
-        service.makeRequest(request) { (result: Result<Note, NetworkManagerError>) in
+        service.makeRequest(request) { (result: Result<Folder, NetworkManagerError>) in
             
             switch result {
             
-            case .success(let note):
+            case .success(let folder):
                 
-                print(note)
+                print(folder)
                 
             case .failure(let error):
                 
@@ -155,19 +158,19 @@ extension NotesViewController {
         
     }
     
-    func loadUserData(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
+    func loadUserFolders(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.paginatedNotes)?page=\(page)&per=\(rows)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.allUserFolders)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
         
-        service.makeRequest(request) { (result: Result<PaginatedNotes,NetworkManagerError>) in
+        service.makeRequest(request) { (result: Result<[Folder],NetworkManagerError>) in
             
             switch result {
             
-            case .success(let notes):
-                self.notes = notes.items ?? []
+            case .success(let folders):
+                self.folders = folders
                 DispatchQueue.main.async {
                     self.reloadNotesTableView()
                 }
@@ -186,11 +189,11 @@ extension NotesViewController {
         
     }
     
-    func deleteNote(note : DeleteNote){
+    func deleteFolder(folder : DeleteFolder){
         
-        let data = try? JSONEncoder().encode(note)
+        let data = try? JSONEncoder().encode(folder)
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteNote)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteFolder)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.DELETE.rawValue
@@ -215,10 +218,10 @@ extension NotesViewController {
 }
 
 //MARK: - Refresh Notes
-extension NotesViewController {
+extension NotesFolderViewController {
     
     @objc func handleRefresh() {
         self.refreshControl.beginRefreshing()
-        loadUserData(isFromRefresh: true)
+        loadUserFolders(isFromRefresh: true)
     }
 }
