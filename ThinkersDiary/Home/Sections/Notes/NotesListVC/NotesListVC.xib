@@ -20,23 +20,48 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tU9-7Y-A4m">
+                    <rect key="frame" x="0.0" y="44" width="414" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2o-mg-MGu">
+                            <rect key="frame" x="366" y="4" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Ds9-Iy-I7v"/>
+                                <constraint firstAttribute="height" constant="40" id="eY4-U4-tGj"/>
+                            </constraints>
+                            <state key="normal" image="plus" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="m2o-mg-MGu" firstAttribute="centerY" secondItem="tU9-7Y-A4m" secondAttribute="centerY" id="VaF-P9-hkf"/>
+                        <constraint firstAttribute="height" constant="48" id="d0H-l8-yuB"/>
+                        <constraint firstAttribute="trailing" secondItem="m2o-mg-MGu" secondAttribute="trailing" constant="8" id="dTu-hB-JfB"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-1q-Nal">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="tU9-7Y-A4m" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1NJ-Cy-mUN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ELm-1q-Nal" secondAttribute="bottom" id="LMW-Rj-BxA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ELm-1q-Nal" secondAttribute="trailing" id="XWD-MB-qAZ"/>
+                <constraint firstItem="ELm-1q-Nal" firstAttribute="top" secondItem="tU9-7Y-A4m" secondAttribute="bottom" id="hMU-ja-Gen"/>
+                <constraint firstItem="tU9-7Y-A4m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iOF-Mi-HQI"/>
                 <constraint firstItem="ELm-1q-Nal" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jd1-Du-nx9"/>
-                <constraint firstItem="ELm-1q-Nal" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vSH-a0-iGy"/>
+                <constraint firstItem="tU9-7Y-A4m" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yZ5-0w-Dts"/>
             </constraints>
-            <point key="canvasLocation" x="-71" y="88"/>
+            <point key="canvasLocation" x="-71.014492753623188" y="87.723214285714278"/>
         </view>
     </objects>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
