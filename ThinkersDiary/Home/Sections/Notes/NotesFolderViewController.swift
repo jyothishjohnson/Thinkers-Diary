@@ -108,9 +108,8 @@ extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource
         print(indexPath.row)
         
         let vc = NotesListVC(nibName: "NotesListVC", bundle: .main)
-        vc.modalPresentationStyle = .fullScreen
         DispatchQueue.main.async {
-            self.present(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

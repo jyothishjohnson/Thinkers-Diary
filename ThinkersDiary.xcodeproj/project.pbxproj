@@ -51,6 +51,7 @@
 		22EA17BE253ECB7700FDE243 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17BC253ECB7700FDE243 /* HomeViewController.xib */; };
 		22EA17C3253EF55800FDE243 /* Termina Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17C2253EF55800FDE243 /* Termina Medium.otf */; };
 		22EA17C6253EFF2700FDE243 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17C5253EFF2700FDE243 /* AttributedString.swift */; };
+		22FB63BC25765B2300C49DDF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB63BB25765B2300C49DDF /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		22EA17BC253ECB7700FDE243 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		22EA17C2253EF55800FDE243 /* Termina Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Termina Medium.otf"; sourceTree = "<group>"; };
 		22EA17C5253EFF2700FDE243 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		22FB63BB25765B2300C49DDF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6BE6913A637E343BFC8F1739 /* Pods_ThinkersDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThinkersDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CFF9B1FAFA13C0F015D8EE /* Pods-ThinkersDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkersDiary.release.xcconfig"; path = "Target Support Files/Pods-ThinkersDiary/Pods-ThinkersDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 		22311582253EBB7800B85BD4 /* ThinkersDiary */ = {
 			isa = PBXGroup;
 			children = (
+				22FB63BA25765B0400C49DDF /* BaseVC */,
 				225DC80F25625DD700FBE427 /* Models */,
 				223115A6253EC35000B85BD4 /* Utils */,
 				22311598253EBC5E00B85BD4 /* Root */,
@@ -345,6 +348,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		22FB63BA25765B0400C49DDF /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				22FB63BB25765B2300C49DDF /* BaseViewController.swift */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
 		4D0113BED99F567CC570EB2C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +509,7 @@
 				22002B042562B160002B419E /* UploadNote.swift in Sources */,
 				224FFE3E25729A7A00DCFA94 /* NotesListVC.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,
+				22FB63BC25765B2300C49DDF /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

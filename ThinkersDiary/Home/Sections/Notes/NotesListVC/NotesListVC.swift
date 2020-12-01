@@ -67,7 +67,9 @@ extension NotesListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     
