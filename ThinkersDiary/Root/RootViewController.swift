@@ -9,7 +9,7 @@ import UIKit
 
 class RootViewController: UIViewController {
     
-    var vc : UIViewController!
+    var vc : UserFlowDelegateAdapterVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,6 @@ class RootViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.add(asChildViewController: vc, containerView: self.view)
-//        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     func navigateUserFlow(){
@@ -33,9 +32,33 @@ class RootViewController: UIViewController {
            
             if UserDefaults.standard.getIsInitialAppUsage() == 0 {
                 vc = SignUpViewController(nibName: nil, bundle: .main)
+                vc.delegate = self
             }else{
                 vc = LoginViewController(nibName: nil, bundle: .main)
             }
+        }
+    }
+    
+}
+
+
+//MARK: - Signup delegate
+
+extension RootViewController : SignUpDelegate {
+    
+    func skipSignUp() {
+        
+        removeAllChilds {
+            navigateUserFlow()
+            self.add(asChildViewController: vc, containerView: self.view)
+        }
+    }
+    
+    func signUpSuccess() {
+        
+        removeAllChilds {
+            navigateUserFlow()
+            self.add(asChildViewController: vc, containerView: self.view)
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UserFlowDelegateAdapterVC {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabsView: TabsView!

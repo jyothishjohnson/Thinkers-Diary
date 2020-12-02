@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UserFlowDelegateAdapterVC {
 
     @IBOutlet weak var signUpMessageLabel: UILabel!
     @IBOutlet weak var signUpPasswordTF: UITextField!
@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpPasswordConfirmTF: UITextField!
     
     let cornerRadius = CGFloat(4)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,15 @@ class SignUpViewController: UIViewController {
         //FIXME:- Redirect to login page on success
         UserDefaults.standard.setIsUserLoggedInStatus(true)
         UserDefaults.standard.setIsInitialAppUsage(1)
-        self.dismiss(animated: false, completion: nil)
+        delegate?.signUpSuccess()
+//        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func skipSignUpAction(_ sender: UIButton) {
         
         UserDefaults.standard.setUserLoginSkippedStatus(true)
-        self.dismiss(animated: false, completion: nil)
+        delegate?.skipSignUp()
+//        self.dismiss(animated: false, completion: nil)
     }
     
     func setupViews(){

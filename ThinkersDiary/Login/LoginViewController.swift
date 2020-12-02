@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UserFlowDelegateAdapterVC {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var passwordTF: UITextField!
