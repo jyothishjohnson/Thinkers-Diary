@@ -12,29 +12,37 @@ class HomeTabDataSource {
     var data = [UIViewController?]()
     unowned var parent : UIViewController!
     
-    lazy var notesController : UIViewController = {
+    lazy var notesController : UINavigationController = {
         
         let controller = NotesFolderViewController(nibName: "NotesFolderViewController", bundle: nil)
         controller.title = "Notes"
-        return controller
+        let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.isHidden = true
+        return navController
     }()
-    lazy var reminderController : UIViewController = {
+    lazy var reminderController : UINavigationController = {
         
         let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
         controller.title = "Reminder"
-        return controller
+        let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.isHidden = true
+        return navController
     }()
-    lazy var diaryController : UIViewController = {
+    lazy var diaryController : UINavigationController = {
         
         let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
         controller.title = "Diary"
-        return controller
+        let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.isHidden = true
+        return navController
     }()
-    lazy var profileController : UIViewController = {
+    lazy var profileController : UINavigationController = {
         
         let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
         controller.title = "Profile"
-        return controller
+        let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.isHidden = true
+        return navController
 
     }()
     

@@ -21,9 +21,8 @@ class RootViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
-        vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.add(asChildViewController: vc, containerView: self.view)
+//        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     func navigateUserFlow(){
