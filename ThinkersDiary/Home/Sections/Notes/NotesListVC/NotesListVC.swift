@@ -13,7 +13,17 @@ class NotesListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh),for: .valueChanged)
+        refreshControl.tintColor = #colorLiteral(red: 0, green: 0.6366431752, blue: 1, alpha: 1)
+        
+        return refreshControl
+    }()
+    
     var notes = [Note]()
+    
+    var currentFolderId : String?
     
     let service = NetworkManager.shared
     
@@ -22,6 +32,36 @@ class NotesListVC: UIViewController {
         super.viewDidLoad()
         setUpViews()
         loadUserNotes()
+    }
+    
+    @IBAction func addNewNoteAction(_ sender: UIButton) {
+        let alert = UIAlertController.prompt(title: "Enter note name") { noteName  in
+            
+            guard let currentFolder = self.currentFolderId else {
+                
+                self.present(UIAlertController.showMessage(title: "Error", "Folder id error", nil), animated: true, completion: nil)
+                return
+            }
+            
+            if let name = noteName {
+                
+                var note = Note()
+                note.name = name
+                note.id = UUID().uuidString
+                
+                self.notes.insert(note, at: 0)
+                DispatchQueue.main.async {
+                    self.reloadNotesTableView(withScroll: true)
+                }
+                
+                
+                let newNote = UploadNote(id: note.id!, name: name, folderId: currentFolder)
+                self.addNewNote(note: newNote)
+                
+            }
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func setUpViews(){
@@ -78,6 +118,33 @@ extension NotesListVC : UITableViewDelegate, UITableViewDataSource {
 //MARK: - Data Tasks
 
 extension NotesListVC {
+    
+    func addNewNote(note: UploadNote){
+        
+        let data = try? JSONEncoder().encode(note)
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewNote)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = NetworkMethods.POST.rawValue
+        request.httpBody = data
+        
+        service.makeRequest(request) { (result: Result<Note, NetworkManagerError>) in
+            
+            switch result {
+            
+            case .success(let note):
+                
+                print(note)
+                
+            case .failure(let error):
+                
+                print(error.rawValue)
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
     
     func loadUserNotes(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         

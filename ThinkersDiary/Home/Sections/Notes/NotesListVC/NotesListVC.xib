@@ -32,6 +32,9 @@
                             <state key="normal" image="plus" catalog="system">
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </state>
+                            <connections>
+                                <action selector="addNewNoteAction:" destination="-1" eventType="touchUpInside" id="mNS-ai-Cfy"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

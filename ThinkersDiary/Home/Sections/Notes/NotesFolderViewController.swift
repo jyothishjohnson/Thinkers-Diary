@@ -42,7 +42,7 @@ class NotesFolderViewController: UIViewController {
     
     @IBAction func addFolderButtonAction(_ sender: UIButton) {
         
-        let alert = UIAlertController.promptForFolderName { folderName  in
+        let alert = UIAlertController.prompt(title: "Enter folder name") { folderName  in
             if let name = folderName {
                 
                 var folder = Folder()
@@ -56,7 +56,7 @@ class NotesFolderViewController: UIViewController {
                 
                 let newFolder = NewFolder(id: folder.id!, name: name)
                 
-                self.addNewFolder(note: newFolder)
+                self.addNewFolder(folder: newFolder)
             }
         }
         
@@ -135,9 +135,9 @@ extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource
 //MARK: - API Calls
 extension NotesFolderViewController {
     
-    func addNewFolder(note: NewFolder){
+    func addNewFolder(folder: NewFolder){
         
-        let data = try? JSONEncoder().encode(note)
+        let data = try? JSONEncoder().encode(folder)
         
         let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewFolder)")!
         
@@ -221,7 +221,7 @@ extension NotesFolderViewController {
     }
 }
 
-//MARK: - Refresh Notes
+//MARK: - Refresh Folders
 extension NotesFolderViewController {
     
     @objc func handleRefresh() {
