@@ -21,7 +21,7 @@ struct GlobalConstants {
         
         static let addNewNote = "\(userEndPoint)\(noteEndpoint)/new"
         static let deleteNote = "\(userEndPoint)\(noteEndpoint)/delete"
-        static let paginatedNotes = "\(userEndPoint)\(notesEndpoint)"
+        static let paginatedNotes = "\(userEndPoint)\(notesEndpoint)/"
         static let allUserNotes = "\(userEndPoint)\(notesEndpoint)/all"
         static let allUserFolders = "\(userEndPoint)\(foldersEndpoint)/all"
         static let addNewFolder = "\(userEndPoint)\(folderEndpoint)/new"

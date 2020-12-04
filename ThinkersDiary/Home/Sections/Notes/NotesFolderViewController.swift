@@ -108,6 +108,7 @@ extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource
         print(indexPath.row)
         
         let vc = NotesListVC(nibName: "NotesListVC", bundle: .main)
+        vc.currentFolderId = folders[indexPath.row].id
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(vc, animated: true)
         }

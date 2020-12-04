@@ -79,6 +79,7 @@ class NotesListVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
     }
     
     func reloadNotesTableView(withScroll : Bool = false){
@@ -148,7 +149,11 @@ extension NotesListVC {
     
     func loadUserNotes(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.paginatedNotes)")!
+        guard let folderId = currentFolderId else {
+            return
+        }
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.paginatedNotes)\(folderId)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
@@ -170,10 +175,19 @@ extension NotesListVC {
             
             if isFromRefresh {
                 DispatchQueue.main.async {
-//                    self.refreshControl.endRefreshing()
+                    self.refreshControl.endRefreshing()
                 }
             }
         }
         
+    }
+}
+
+//MARK: - Refresh Notes
+extension NotesListVC {
+    
+    @objc func handleRefresh() {
+        self.refreshControl.beginRefreshing()
+        loadUserNotes(isFromRefresh: true)
     }
 }
