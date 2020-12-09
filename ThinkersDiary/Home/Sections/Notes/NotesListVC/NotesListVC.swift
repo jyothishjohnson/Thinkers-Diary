@@ -108,9 +108,10 @@ extension NotesListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            self.navigationController?.popViewController(animated: true)
-        }
+        
+        let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     

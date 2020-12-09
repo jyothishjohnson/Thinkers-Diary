@@ -21,6 +21,8 @@
 		2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2231159A253EBC7700B85BD4 /* RootViewController.xib */; };
 		223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A3253EC09D00B85BD4 /* UserDefs.swift */; };
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
+		2233EFE4257E621900BC388C /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233EFE2257E621900BC388C /* NoteViewController.swift */; };
+		2233EFE5257E621900BC388C /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233EFE3257E621900BC388C /* NoteViewController.xib */; };
 		224FFE2F2572203A00DCFA94 /* NewFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */; };
 		224FFE322572237D00DCFA94 /* DeleteFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */; };
 		224FFE3E25729A7A00DCFA94 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */; };
@@ -72,6 +74,8 @@
 		2231159A253EBC7700B85BD4 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		223115A3253EC09D00B85BD4 /* UserDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefs.swift; sourceTree = "<group>"; };
 		223115A7253EC36100B85BD4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		2233EFE2257E621900BC388C /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		2233EFE3257E621900BC388C /* NoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
 		224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolderRequestDTO.swift; sourceTree = "<group>"; };
 		224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFolderRequestDTO.swift; sourceTree = "<group>"; };
 		224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
@@ -199,6 +203,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		2233EFE1257E620500BC388C /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				2233EFE2257E621900BC388C /* NoteViewController.swift */,
+				2233EFE3257E621900BC388C /* NoteViewController.xib */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
 		224FFE392572991300DCFA94 /* NotesListVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +305,7 @@
 		22A80BA1254EB35F00B3B159 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				2233EFE1257E620500BC388C /* Note */,
 				2286429A256002430010537F /* Cells */,
 				224FFE392572991300DCFA94 /* NotesListVC */,
 				22A80BA2254EB37600B3B159 /* NotesFolderViewController.swift */,
@@ -446,6 +460,7 @@
 				2231159C253EBC7800B85BD4 /* RootViewController.xib in Resources */,
 				2231158B253EBB7900B85BD4 /* Main.storyboard in Resources */,
 				22EA17BE253ECB7700FDE243 /* HomeViewController.xib in Resources */,
+				2233EFE5257E621900BC388C /* NoteViewController.xib in Resources */,
 				2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */,
 				228642A0256002CB0010537F /* NotesListCell.xib in Resources */,
 				22EA17C3253EF55800FDE243 /* Termina Medium.otf in Resources */,
@@ -490,6 +505,7 @@
 				22EA17C6253EFF2700FDE243 /* AttributedString.swift in Sources */,
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
+				2233EFE4257E621900BC388C /* NoteViewController.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
 				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
