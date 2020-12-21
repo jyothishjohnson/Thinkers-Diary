@@ -13,6 +13,10 @@ typealias Folder = FolderResponseDTO
 typealias NewFolder = NewFolderRequestDTO
 typealias DeleteFolder = DeleteFolderRequestDTO
 
+fileprivate enum NotesFolderCells: String, CaseIterable {
+    case FolderListCell
+}
+
 class NotesFolderViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -68,11 +72,17 @@ class NotesFolderViewController: UIViewController {
     }
     
     func setUpTableView(){
-        tableView.register(UINib(nibName: FoldersCell.id, bundle: .main), forCellReuseIdentifier: FoldersCell.id)
+        registerCells()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.addSubview(self.refreshControl)
+    }
+    
+    func registerCells(){
+        for celltype in NotesFolderCells.allCases {
+            tableView.register(UINib(nibName: celltype.rawValue, bundle: .main), forCellReuseIdentifier: celltype.rawValue)
+        }
     }
 
     func reloadFoldersTableView(withScroll : Bool = false){
