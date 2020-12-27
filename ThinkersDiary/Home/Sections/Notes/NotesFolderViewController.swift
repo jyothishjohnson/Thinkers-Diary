@@ -46,21 +46,21 @@ class NotesFolderViewController: UIViewController {
     
     @IBAction func addFolderButtonAction(_ sender: UIButton) {
         
-        let alert = UIAlertController.prompt(title: "Enter folder name") { folderName  in
+        let alert = UIAlertController.prompt(title: "Enter folder name") { [weak self] folderName  in
             if let name = folderName {
                 
                 var folder = Folder()
                 folder.name = name
                 folder.id = UUID().uuidString
                 
-                self.folders.insert(folder, at: 0)
+                self?.folders.insert(folder, at: 0)
                 DispatchQueue.main.async {
-                    self.reloadFoldersTableView(withScroll: true)
+                    self?.reloadFoldersTableView(withScroll: true)
                 }
                 
                 let newFolder = NewFolder(id: folder.id!, name: name)
                 
-                self.addNewFolder(folder: newFolder)
+                self?.addNewFolder(folder: newFolder)
             }
         }
         
@@ -180,14 +180,14 @@ extension NotesFolderViewController {
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
         
-        service.makeRequest(request) { (result: Result<[Folder],NetworkManagerError>) in
+        service.makeRequest(request) { [weak self] (result: Result<[Folder],NetworkManagerError>) in
             
             switch result {
             
             case .success(let folders):
-                self.folders = folders
+                self?.folders = folders
                 DispatchQueue.main.async {
-                    self.reloadFoldersTableView()
+                    self?.reloadFoldersTableView()
                 }
                 
             case .failure(let error):
@@ -197,7 +197,7 @@ extension NotesFolderViewController {
             
             if isFromRefresh {
                 DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
+                    self?.refreshControl.endRefreshing()
                 }
             }
         }

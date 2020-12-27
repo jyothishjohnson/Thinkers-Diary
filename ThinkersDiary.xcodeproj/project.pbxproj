@@ -22,6 +22,8 @@
 		223115A4253EC09D00B85BD4 /* UserDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A3253EC09D00B85BD4 /* UserDefs.swift */; };
 		223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223115A7253EC36100B85BD4 /* AppConstants.swift */; };
 		22336A722597630500ECC8E5 /* ThinkersDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22336A712597630500ECC8E5 /* ThinkersDiaryTests.swift */; };
+		22336A7C2597635900ECC8E5 /* LocalAuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22336A7B2597635900ECC8E5 /* LocalAuthValidator.swift */; };
+		22336A802597784E00ECC8E5 /* LocalAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22336A7F2597784E00ECC8E5 /* LocalAuthTests.swift */; };
 		2233EFE4257E621900BC388C /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233EFE2257E621900BC388C /* NoteViewController.swift */; };
 		2233EFE5257E621900BC388C /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233EFE3257E621900BC388C /* NoteViewController.xib */; };
 		224FFE2F2572203A00DCFA94 /* NewFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */; };
@@ -88,6 +90,8 @@
 		22336A6F2597630500ECC8E5 /* ThinkersDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkersDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22336A712597630500ECC8E5 /* ThinkersDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkersDiaryTests.swift; sourceTree = "<group>"; };
 		22336A732597630500ECC8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22336A7B2597635900ECC8E5 /* LocalAuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthValidator.swift; sourceTree = "<group>"; };
+		22336A7F2597784E00ECC8E5 /* LocalAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthTests.swift; sourceTree = "<group>"; };
 		2233EFE2257E621900BC388C /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		2233EFE3257E621900BC388C /* NoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
 		224FFE2E2572203A00DCFA94 /* NewFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolderRequestDTO.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				223115A7253EC36100B85BD4 /* AppConstants.swift */,
 				2226032225615A9000A93DD6 /* CustomColors.swift */,
 				225DC80C256250B200FBE427 /* NetworkManager.swift */,
+				22336A7B2597635900ECC8E5 /* LocalAuthValidator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				22336A712597630500ECC8E5 /* ThinkersDiaryTests.swift */,
 				22336A732597630500ECC8E5 /* Info.plist */,
+				22336A7F2597784E00ECC8E5 /* LocalAuthTests.swift */,
 			);
 			path = ThinkersDiaryTests;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				2286429F256002CB0010537F /* NotesListCell.swift in Sources */,
 				22A80BA4254EB37600B3B159 /* NotesFolderViewController.swift in Sources */,
 				22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */,
+				22336A7C2597635900ECC8E5 /* LocalAuthValidator.swift in Sources */,
 				2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */,
 				22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */,
 				224FFE322572237D00DCFA94 /* DeleteFolderRequestDTO.swift in Sources */,
@@ -600,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22336A722597630500ECC8E5 /* ThinkersDiaryTests.swift in Sources */,
+				22336A802597784E00ECC8E5 /* LocalAuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +806,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2S498RPXZ;
 				INFOPLIST_FILE = ThinkersDiaryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -818,6 +827,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2S498RPXZ;
 				INFOPLIST_FILE = ThinkersDiaryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

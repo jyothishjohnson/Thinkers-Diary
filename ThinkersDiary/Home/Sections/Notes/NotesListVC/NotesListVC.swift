@@ -35,11 +35,11 @@ class NotesListVC: UIViewController {
     }
     
     @IBAction func addNewNoteAction(_ sender: UIButton) {
-        let alert = UIAlertController.prompt(title: "Enter note name") { noteName  in
+        let alert = UIAlertController.prompt(title: "Enter note name") { [weak self] noteName  in
             
-            guard let currentFolder = self.currentFolderId else {
+            guard let currentFolder = self?.currentFolderId else {
                 
-                self.present(UIAlertController.showMessage(title: "Error", "Folder id error", nil), animated: true, completion: nil)
+                self?.present(UIAlertController.showMessage(title: "Error", "Folder id error", nil), animated: true, completion: nil)
                 return
             }
             
@@ -49,14 +49,14 @@ class NotesListVC: UIViewController {
                 note.name = name
                 note.id = UUID().uuidString
                 
-                self.notes.insert(note, at: 0)
+                self?.notes.insert(note, at: 0)
                 DispatchQueue.main.async {
-                    self.reloadNotesTableView(withScroll: true)
+                    self?.reloadNotesTableView(withScroll: true)
                 }
                 
                 
                 let newNote = UploadNote(id: note.id!, name: name, folderId: currentFolder)
-                self.addNewNote(note: newNote)
+                self?.addNewNote(note: newNote)
                 
             }
         }
@@ -159,14 +159,14 @@ extension NotesListVC {
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
         
-        service.makeRequest(request) { (result: Result<PaginatedNotes,NetworkManagerError>) in
-            
+        service.makeRequest(request) { [weak self] (result: Result<PaginatedNotes,NetworkManagerError>) in
+             
             switch result {
             
             case .success(let response):
-                self.notes = response.items ?? []
+                self?.notes = response.items ?? []
                 DispatchQueue.main.async {
-                    self.reloadNotesTableView()
+                    self?.reloadNotesTableView()
                 }
                 
             case .failure(let error):
@@ -176,7 +176,7 @@ extension NotesListVC {
             
             if isFromRefresh {
                 DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
+                    self?.refreshControl.endRefreshing()
                 }
             }
         }
