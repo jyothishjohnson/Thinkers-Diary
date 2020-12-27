@@ -9,7 +9,7 @@ import Foundation
 
 struct LocalAuthValidator {
     
-    static func validateUserName(userName : String) -> (String,Bool) {
+    static func validateUserName(userName : String) -> (message: String, isValid: Bool) {
         
         if userName.count < 4 {
             return (LocalAuthError.userNameTooSmall.errorMessage, false)
@@ -31,7 +31,7 @@ struct LocalAuthValidator {
         }
     }
     
-    static func validateUserPassword(password : String) -> (String,Bool) {
+    static func validateUserPassword(password : String) -> (message: String, isValid: Bool){
         
         if password.count < 4 {
             return (LocalAuthError.passwordTooSmall.errorMessage, false)

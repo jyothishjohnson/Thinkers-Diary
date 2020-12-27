@@ -12,10 +12,10 @@ class LocalAuthTests: XCTestCase {
     
     func testUserLocalAuth(){
         
-        XCTAssertEqual(LocalAuthValidator.validateUserName(userName: "jonsnow").1, true, LocalAuthValidator.validateUserName(userName: "jonsnow").0)
+        XCTAssertEqual(LocalAuthValidator.validateUserName(userName: "jonsnow").isValid, true, LocalAuthValidator.validateUserName(userName: "jonsnow").message)
         
-        XCTAssertEqual(LocalAuthValidator.validateUserName(userName: "jon").1, false, LocalAuthValidator.validateUserName(userName: "jon").0)
+        XCTAssertEqual(LocalAuthValidator.validateUserName(userName: "jon").isValid, false, LocalAuthValidator.validateUserName(userName: "jon").message)
         
-        XCTAssertEqual(LocalAuthValidator.validateUserName(userName: "jonsnowisfromamagicelalnadirnqwertttyyireo").1, false, LocalAuthValidator.validateUserName(userName: "jonsnowisfromamagicelalnadirnqwertttyyireo").0)
+        XCTAssertEqual(LocalAuthValidator.validateUserName(userName: "jonsnowisfromamagicelalnadirnqwertttyyireo").isValid, false, LocalAuthValidator.validateUserName(userName: "jonsnowisfromamagicelalnadirnqwertttyyireo").message)
     }
 }
