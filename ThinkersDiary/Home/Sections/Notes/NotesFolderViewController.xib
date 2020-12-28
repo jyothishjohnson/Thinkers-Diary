@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,29 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZC-dK-1zQ" userLabel="topView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZC-dK-1zQ" userLabel="topView" customClass="HeaderView" customModule="ThinkersDiary" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="48"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVT-8M-RA7">
-                            <rect key="frame" x="366" y="4" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="4De-Od-Ie8"/>
-                                <constraint firstAttribute="width" constant="40" id="WLN-Qx-Etv"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="tintColor" systemColor="systemBlueColor"/>
-                            <state key="normal">
-                                <imageReference key="image" image="folder.badge.plus" catalog="system" symbolScale="large" renderingMode="template"/>
-                            </state>
-                            <connections>
-                                <action selector="addFolderButtonAction:" destination="-1" eventType="touchUpInside" id="m0x-V5-w4t"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="zVT-8M-RA7" firstAttribute="centerY" secondItem="OZC-dK-1zQ" secondAttribute="centerY" id="8lA-hX-e0L"/>
-                        <constraint firstAttribute="trailing" secondItem="zVT-8M-RA7" secondAttribute="trailing" constant="8" id="E0F-MY-TTh"/>
                         <constraint firstAttribute="height" constant="48" id="bMO-zC-rPn"/>
                     </constraints>
                 </view>
@@ -67,12 +47,8 @@
         </view>
     </objects>
     <resources>
-        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
