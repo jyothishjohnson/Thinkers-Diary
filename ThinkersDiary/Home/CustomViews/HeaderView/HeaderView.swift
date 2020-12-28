@@ -11,6 +11,18 @@ class HeaderView: UIView {
     
     @IBOutlet var rootView: UIView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var rightButton: UIButton!
+    
+    var buttonAction : (() -> ())?
+    var rightButtonImageName : (name: String,isSystemImage: Bool)? {
+        didSet {
+            if rightButtonImageName?.isSystemImage ?? true {
+                rightButton.setImage(UIImage(systemName: rightButtonImageName?.name ?? ""), for: .normal)
+            }else {
+                rightButton.setImage(UIImage(named: rightButtonImageName?.name ?? ""), for: .normal)
+            }
+        }
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -19,6 +31,9 @@ class HeaderView: UIView {
 
     @IBAction func rightButtonAction(_ sender: UIButton) {
         print(#function)
+        if let buttonAction = buttonAction{
+            buttonAction()
+        }
     }
     
     func setUpView(){

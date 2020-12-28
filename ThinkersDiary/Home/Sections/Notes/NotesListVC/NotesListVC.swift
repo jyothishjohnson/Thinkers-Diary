@@ -12,6 +12,7 @@ typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
 class NotesListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topHeaderView: HeaderView!
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -67,10 +68,7 @@ class NotesListVC: UIViewController {
     func setUpViews(){
         
         setUpTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
+        setUpButtonActions()
     }
     
     func setUpTableView(){
@@ -80,6 +78,40 @@ class NotesListVC: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
+    }
+    
+    func setUpButtonActions(){
+        topHeaderView.rightButtonImageName = (name: "plus",isSystemImage: true)
+        topHeaderView.buttonAction = { [unowned self] in
+            
+            let alert = UIAlertController.prompt(title: "Enter note name") { noteName  in
+                
+                guard let currentFolder = self.currentFolderId else {
+                    
+                    self.present(UIAlertController.showMessage(title: "Error", "Folder id error", nil), animated: true, completion: nil)
+                    return
+                }
+                
+                if let name = noteName {
+                    
+                    var note = Note()
+                    note.name = name
+                    note.id = UUID().uuidString
+                    
+                    self.notes.insert(note, at: 0)
+                    DispatchQueue.main.async {
+                        self.reloadNotesTableView(withScroll: true)
+                    }
+                    
+                    
+                    let newNote = UploadNote(id: note.id!, name: name, folderId: currentFolder)
+                    self.addNewNote(note: newNote)
+                    
+                }
+            }
+            
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func reloadNotesTableView(withScroll : Bool = false){

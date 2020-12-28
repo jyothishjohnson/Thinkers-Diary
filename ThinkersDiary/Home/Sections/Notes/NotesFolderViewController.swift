@@ -19,6 +19,7 @@ fileprivate enum NotesFolderCells: String, CaseIterable {
 
 class NotesFolderViewController: UIViewController {
     
+    @IBOutlet weak var topHeaderView: HeaderView!
     @IBOutlet weak var tableView: UITableView!
     
     lazy var refreshControl: UIRefreshControl = {
@@ -44,31 +45,9 @@ class NotesFolderViewController: UIViewController {
         print(#function)
     }
     
-    @IBAction func addFolderButtonAction(_ sender: UIButton) {
-        
-        let alert = UIAlertController.prompt(title: "Enter folder name") { [weak self] folderName  in
-            if let name = folderName {
-                
-                var folder = Folder()
-                folder.name = name
-                folder.id = UUID().uuidString
-                
-                self?.folders.insert(folder, at: 0)
-                DispatchQueue.main.async {
-                    self?.reloadFoldersTableView(withScroll: true)
-                }
-                
-                let newFolder = NewFolder(id: folder.id!, name: name)
-                
-                self?.addNewFolder(folder: newFolder)
-            }
-        }
-        
-        present(alert , animated: true)
-    }
-    
     func setUpViews(){
         setUpTableView()
+        setUpButtonActions()
     }
     
     func setUpTableView(){
@@ -77,6 +56,31 @@ class NotesFolderViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.addSubview(self.refreshControl)
+    }
+    
+    func setUpButtonActions(){
+        topHeaderView.buttonAction = { [unowned self] in
+            
+            let alert = UIAlertController.prompt(title: "Enter folder name") { folderName  in
+                if let name = folderName {
+                    
+                    var folder = Folder()
+                    folder.name = name
+                    folder.id = UUID().uuidString
+                    
+                    self.folders.insert(folder, at: 0)
+                    DispatchQueue.main.async {
+                        self.reloadFoldersTableView(withScroll: true)
+                    }
+                    
+                    let newFolder = NewFolder(id: folder.id!, name: name)
+                    
+                    self.addNewFolder(folder: newFolder)
+                }
+            }
+            
+            self.present(alert , animated: true)
+        }
     }
     
     func registerCells(){

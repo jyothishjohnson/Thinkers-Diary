@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotesFolderViewController" customModule="ThinkersDiary" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="Ry3-jr-LWo" id="4h3-hb-Irc"/>
+                <outlet property="topHeaderView" destination="OZC-dK-1zQ" id="oYw-DS-nZj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

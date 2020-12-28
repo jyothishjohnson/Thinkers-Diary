@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="ThinkersDiary" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="q1B-IZ-Ojk" id="pze-A7-gIk"/>
+                <outlet property="rightButton" destination="4S7-vn-hrT" id="pTz-tJ-SrR"/>
                 <outlet property="rootView" destination="iN0-l3-epB" id="h01-Ri-ul3"/>
             </connections>
         </placeholder>
