@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="ThinkersDiary" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="q1B-IZ-Ojk" id="pze-A7-gIk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1B-IZ-Ojk">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4S7-vn-hrT">
+                            <rect key="frame" x="366" y="4" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="1sM-jb-In1"/>
+                                <constraint firstAttribute="width" constant="40" id="Dno-3Q-Yq1"/>
+                            </constraints>
+                            <state key="normal" image="folder.badge.plus" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </state>
+                            <connections>
+                                <action selector="rightButtonAction:" destination="-1" eventType="touchUpInside" id="gNK-LY-6bS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="4S7-vn-hrT" firstAttribute="centerY" secondItem="q1B-IZ-Ojk" secondAttribute="centerY" id="F6H-Q8-2u6"/>
+                        <constraint firstAttribute="trailing" secondItem="4S7-vn-hrT" secondAttribute="trailing" constant="8" id="oSR-CU-1d4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="q1B-IZ-Ojk" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="HSX-RX-ecZ"/>
+                <constraint firstItem="q1B-IZ-Ojk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MyU-yQ-C8r"/>
+                <constraint firstItem="q1B-IZ-Ojk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Z25-nX-6Ip"/>
+                <constraint firstItem="q1B-IZ-Ojk" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="y83-H3-07Q"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="69.565217391304358" y="210.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

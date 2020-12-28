@@ -34,6 +34,8 @@
 		225DC81225625DF200FBE427 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC81125625DF200FBE427 /* Note.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
 		2274B33D2546AB6A006E8CA9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */; };
+		2281009A259A064000B34144 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22810099259A064000B34144 /* HeaderView.swift */; };
+		228100A0259A065900B34144 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2281009F259A065900B34144 /* HeaderView.xib */; };
 		2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428A255FBEEE0010537F /* UIAlertController.swift */; };
 		22864290255FF96C0010537F /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286428E255FF96C0010537F /* RemindersViewController.swift */; };
 		22864291255FF96C0010537F /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2286428F255FF96C0010537F /* RemindersViewController.xib */; };
@@ -102,6 +104,8 @@
 		225DC81125625DF200FBE427 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2274B33B2546AB6A006E8CA9 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		22810099259A064000B34144 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2281009F259A065900B34144 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		2286428A255FBEEE0010537F /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		2286428E255FF96C0010537F /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		2286428F255FF96C0010537F /* RemindersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +292,23 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		22810097259A060D00B34144 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				22810098259A061500B34144 /* HeaderView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		22810098259A061500B34144 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				22810099259A064000B34144 /* HeaderView.swift */,
+				2281009F259A065900B34144 /* HeaderView.xib */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
 		2286428D255FF9400010537F /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +414,7 @@
 		22EA17BA253ECB6600FDE243 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				22810097259A060D00B34144 /* CustomViews */,
 				22A80BAA254EBB6200B3B159 /* TabsView */,
 				22A80BA0254EB35100B3B159 /* Sections */,
 				22EA17BB253ECB7700FDE243 /* HomeViewController.swift */,
@@ -515,6 +537,7 @@
 				22311590253EBB7900B85BD4 /* LaunchScreen.storyboard in Resources */,
 				224FFE3F25729A7A00DCFA94 /* NotesListVC.xib in Resources */,
 				22864291255FF96C0010537F /* RemindersViewController.xib in Resources */,
+				228100A0259A065900B34144 /* HeaderView.xib in Resources */,
 				228900B7256F90090049D07C /* FolderListCell.xib in Resources */,
 				22A80BA5254EB37600B3B159 /* NotesFolderViewController.xib in Resources */,
 				2231158D253EBB7900B85BD4 /* Assets.xcassets in Resources */,
@@ -574,6 +597,7 @@
 				22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */,
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
 				2233EFE4257E621900BC388C /* NoteViewController.swift in Sources */,
+				2281009A259A064000B34144 /* HeaderView.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
 				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
