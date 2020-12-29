@@ -35,36 +35,6 @@ class NotesListVC: UIViewController {
         loadUserNotes()
     }
     
-    @IBAction func addNewNoteAction(_ sender: UIButton) {
-        let alert = UIAlertController.prompt(title: "Enter note name") { [weak self] noteName  in
-            
-            guard let currentFolder = self?.currentFolderId else {
-                
-                self?.present(UIAlertController.showMessage(title: "Error", "Folder id error", nil), animated: true, completion: nil)
-                return
-            }
-            
-            if let name = noteName {
-                
-                var note = Note()
-                note.name = name
-                note.id = UUID().uuidString
-                
-                self?.notes.insert(note, at: 0)
-                DispatchQueue.main.async {
-                    self?.reloadNotesTableView(withScroll: true)
-                }
-                
-                
-                let newNote = UploadNote(id: note.id!, name: name, folderId: currentFolder)
-                self?.addNewNote(note: newNote)
-                
-            }
-        }
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
     func setUpViews(){
         
         setUpTableView()
