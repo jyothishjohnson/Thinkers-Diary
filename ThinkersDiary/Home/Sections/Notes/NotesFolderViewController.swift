@@ -31,6 +31,7 @@ class NotesFolderViewController: UIViewController {
     }()
     
     var folders  = [Folder]()
+    private lazy var dataSource = makeDataSource()
     
     let service = NetworkManager.shared
     
@@ -38,7 +39,7 @@ class NotesFolderViewController: UIViewController {
         
         super.viewDidLoad()
         setUpViews()
-        loadUserFolders()
+        loadUserFoldersFromAPI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +54,7 @@ class NotesFolderViewController: UIViewController {
     func setUpTableView(){
         registerCells()
         tableView.delegate = self
-        tableView.dataSource = self
+        tableView.dataSource = dataSource
         tableView.tableFooterView = UIView()
         tableView.addSubview(self.refreshControl)
     }
@@ -64,16 +65,14 @@ class NotesFolderViewController: UIViewController {
             let alert = UIAlertController.prompt(title: "Enter folder name") { folderName  in
                 if let name = folderName {
                     
-                    var folder = Folder()
-                    folder.name = name
-                    folder.id = UUID().uuidString
+                    let folder = Folder(id: UUID().uuidString, name: name)
                     
                     self.folders.insert(folder, at: 0)
                     DispatchQueue.main.async {
-                        self.reloadFoldersTableView(withScroll: true)
+                        self.loadDataSource(animated: true)
                     }
                     
-                    let newFolder = NewFolder(id: folder.id!, name: name)
+                    let newFolder = NewFolder(id: folder.id, name: name)
                     
                     self.addNewFolder(folder: newFolder)
                 }
@@ -101,21 +100,10 @@ class NotesFolderViewController: UIViewController {
 }
 
 //MARK: - TableView delegate & datasource
-extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource {
+extension NotesFolderViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        folders.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: FoldersCell.id, for: indexPath) as! FolderListCell
-        cell.folderName = folders[indexPath.row].name
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -128,22 +116,23 @@ extension NotesFolderViewController : UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    //MARK: - Remove Note
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            
-            let row = indexPath.row
-
-            let folder = folders[row]
-            let delFolder = DeleteFolder(id: folder.id ?? "")
-
-            folders.remove(at: row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-
-            deleteFolder(folder: delFolder)
+    //MARK: - Remove Folder
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  [unowned self] (contextualAction, view, completion) in
+            if let folder = self.dataSource.itemIdentifier(for: indexPath) {
+                var currentSnapshot = self.dataSource.snapshot()
+                currentSnapshot.deleteItems([folder])
+                self.dataSource.apply(currentSnapshot)
+                
+                let delFolder = DeleteFolder(id: folder.id)
+                deleteFolder(folder: delFolder)
+            }
         }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        swipeActions.performsFirstActionWithFullSwipe = false
+        return swipeActions
     }
+
 }
 
 
@@ -177,7 +166,7 @@ extension NotesFolderViewController {
         
     }
     
-    func loadUserFolders(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
+    func loadUserFoldersFromAPI(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
         let url = URL(string: "\(EP.ipBaseURL)\(EP.allUserFolders)")!
         
@@ -191,7 +180,7 @@ extension NotesFolderViewController {
             case .success(let folders):
                 self?.folders = folders
                 DispatchQueue.main.async {
-                    self?.reloadFoldersTableView()
+                    self?.loadDataSource()
                 }
                 
             case .failure(let error):
@@ -241,6 +230,46 @@ extension NotesFolderViewController {
     
     @objc func handleRefresh() {
         self.refreshControl.beginRefreshing()
-        loadUserFolders(isFromRefresh: true)
+        loadUserFoldersFromAPI(isFromRefresh: true)
     }
 }
+
+//MARK: - Diffable Data Source
+
+extension NotesFolderViewController {
+    
+    func makeDataSource() -> CustomDiffDataSource{
+        
+        return CustomDiffDataSource(
+            tableView: tableView,
+            cellProvider: { tableView, indexPath, folder in
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: FoldersCell.id,
+                    for: indexPath) as! FolderListCell
+                
+                cell.folderName = folder.name
+                
+                return cell
+        })
+    }
+    
+    func loadDataSource(animated: Bool = false) {
+        var snapshot = NSDiffableDataSourceSnapshot<FolderVCSections, Folder>()
+        snapshot.appendSections(FolderVCSections.allCases)
+        snapshot.appendItems(folders, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: animated)
+    }
+}
+
+enum FolderVCSections: CaseIterable {
+    case main
+}
+
+class CustomDiffDataSource: UITableViewDiffableDataSource<FolderVCSections, Folder> {
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+}
+
+

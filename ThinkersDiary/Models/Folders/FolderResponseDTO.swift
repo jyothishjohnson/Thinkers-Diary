@@ -7,8 +7,16 @@
 
 import Foundation
 
-struct FolderResponseDTO : Decodable {
+struct FolderResponseDTO : Hashable, Decodable {
     
-    var id : String?
-    var name : String?
+    var id : String
+    var name : String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func ==(lhs: FolderResponseDTO, rhs: FolderResponseDTO) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
