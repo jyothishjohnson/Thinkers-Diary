@@ -322,16 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				228900B3256F8FE30049D07C /* FolderListCell */,
-				2286429B256002580010537F /* HeaderView */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		2286429B256002580010537F /* HeaderView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		2286429C256002730010537F /* NotesListCell */ = {
