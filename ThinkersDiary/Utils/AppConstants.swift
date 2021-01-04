@@ -66,4 +66,9 @@ struct GlobalConstants {
         
         static let loginSkippedKey = "USER_LOGIN_SKIPPED"
     }
+    
+    struct NetworkStatus {
+        
+        static let isActive = "NETWORK_IS_ACTIVE"
+    }
 }

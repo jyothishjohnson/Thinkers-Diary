@@ -37,4 +37,13 @@ extension UserDefaults {
     func getIsInitialAppUsage() -> Int{
         self.integer(forKey: GlobalConstants.AppStatus.isInitialUsageKey)
     }
+    
+    //MARK: - Network Status
+    func setNetworkStatusisActive(_ status: Bool){
+        self.setValue(status, forKey: GlobalConstants.NetworkStatus.isActive)
+    }
+    
+    func getNetworkStatusisActive() -> Bool{
+        self.bool(forKey: GlobalConstants.NetworkStatus.isActive)
+    }
 }
