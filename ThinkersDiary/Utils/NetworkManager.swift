@@ -46,7 +46,7 @@ class NetworkManager {
         urlTask.resume()
     }
     
-    private func decodedData<T: Any>(_ data: Data) -> T? where T: Decodable{
+    private func decodedData<T: Decodable>(_ data: Data) -> T?{
           if T.self is String.Type {
               return String(data: data, encoding: .utf8) as? T
           } else {

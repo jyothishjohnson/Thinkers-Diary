@@ -12,12 +12,15 @@ class HomeViewController: UserFlowDelegateAdapterVC {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabsView: TabsView!
     
+    lazy var networkObserver = NetworkObserver.shared
+    
     var tabsDataSource : [UIViewController?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabsView.delegate = self
         setData()
+        networkObserver.delegate = self
     }
     
     func setData(){
@@ -52,6 +55,18 @@ extension HomeViewController {
     
     func selectController(at position : Int, containerView : UIView){
         add(asChildViewController: tabsDataSource[position]!, containerView: containerView)
+    }
+}
+
+//MARK: - NetworkConnectionUpdateDelegate
+
+extension HomeViewController :ConnectionUpdateDelegate {
+    
+    func connectionDidUpdate() {
+        print(networkObserver.isActive)
+        print(networkObserver.isConstrained)
+        print(networkObserver.isExpensive)
+        print(networkObserver.connectionType)
     }
 }
 
