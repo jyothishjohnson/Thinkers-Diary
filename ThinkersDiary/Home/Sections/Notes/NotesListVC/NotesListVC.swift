@@ -9,6 +9,10 @@ import UIKit
 
 typealias NotesCell = GlobalConstants.NotesVC.NotesListCell
 
+fileprivate enum NotesListCells: String, CaseIterable {
+    case NotesListCell
+}
+
 class NotesListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +27,8 @@ class NotesListVC: UIViewController {
     }()
     
     var notes = [Note]()
+    
+    private lazy var dataSource = makeDataSource()
     
     var currentFolderId : String?
     
@@ -43,11 +49,18 @@ class NotesListVC: UIViewController {
     
     func setUpTableView(){
         
-        tableView.register(UINib(nibName: NotesCell.id, bundle: .main), forCellReuseIdentifier: NotesCell.id)
+        registerCells()
         tableView.delegate = self
-        tableView.dataSource = self
+        tableView.dataSource = dataSource
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
+    }
+    
+    func registerCells(){
+        
+        for cellType in NotesListCells.allCases{
+            tableView.register(UINib(nibName: cellType.rawValue, bundle: .main), forCellReuseIdentifier: cellType.rawValue)
+        }
     }
     
     func setUpButtonActions(){
@@ -63,18 +76,16 @@ class NotesListVC: UIViewController {
                 }
                 
                 if let name = noteName {
-                    
-                    var note = Note()
-                    note.name = name
-                    note.id = UUID().uuidString
+                    let id = UUID().uuidString
+                    let note = Note(id: id, name: name, content: nil)
                     
                     self.notes.insert(note, at: 0)
                     DispatchQueue.main.async {
-                        self.reloadNotesTableView(withScroll: true)
+                        self.loadDataSource(animated: true)
                     }
                     
                     
-                    let newNote = UploadNote(id: note.id!, name: name, folderId: currentFolder)
+                    let newNote = UploadNote(id: note.id, name: name, folderId: currentFolder)
                     self.addNewNote(note: newNote)
                     
                 }
@@ -96,31 +107,17 @@ class NotesListVC: UIViewController {
 
 //MARK: - Tableview delegate and datasource
 
-extension NotesListVC : UITableViewDelegate, UITableViewDataSource {
+extension NotesListVC : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         54
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        notes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
-        cell.noteTitle = notes[indexPath.row].name
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
-    
-    
 }
 
 //MARK: - Data Tasks
@@ -172,7 +169,7 @@ extension NotesListVC {
             case .success(let response):
                 self?.notes = response.items ?? []
                 DispatchQueue.main.async {
-                    self?.reloadNotesTableView()
+                    self?.loadDataSource()
                 }
                 
             case .failure(let error):
@@ -196,5 +193,39 @@ extension NotesListVC {
     @objc func handleRefresh() {
         self.refreshControl.beginRefreshing()
         loadUserNotes(isFromRefresh: true)
+    }
+}
+
+//MARK: - Diffable DS
+
+extension NotesListVC {
+    
+    private func makeDataSource() ->CustomNotesDiffDataSource {
+        
+        return CustomNotesDiffDataSource(
+            tableView: tableView) { (tableview, indexPath, note) -> UITableViewCell? in
+            
+            let cell = tableview.dequeueReusableCell(withIdentifier: NotesCell.id, for: indexPath) as! NotesListCell
+            cell.noteTitle = note.name
+            return cell
+        }
+    }
+    
+    func loadDataSource(animated: Bool = false) {
+        var snapshot = NSDiffableDataSourceSnapshot<NoteVCSections, Note>()
+        snapshot.appendSections(NoteVCSections.allCases)
+        snapshot.appendItems(notes, toSection: .notes)
+        dataSource.apply(snapshot, animatingDifferences: animated)
+    }
+}
+
+private enum NoteVCSections: CaseIterable {
+    case notes
+}
+
+fileprivate class CustomNotesDiffDataSource: UITableViewDiffableDataSource<NoteVCSections, Note> {
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
     }
 }

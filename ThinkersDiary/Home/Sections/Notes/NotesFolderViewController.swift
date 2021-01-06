@@ -234,9 +234,9 @@ extension NotesFolderViewController {
 
 extension NotesFolderViewController {
     
-    func makeDataSource() -> CustomDiffDataSource{
+    private func makeDataSource() -> CustomFoldersDiffDataSource{
         
-        return CustomDiffDataSource(
+        return CustomFoldersDiffDataSource(
             tableView: tableView,
             cellProvider: { tableView, indexPath, folder in
                 let cell = tableView.dequeueReusableCell(
@@ -257,11 +257,11 @@ extension NotesFolderViewController {
     }
 }
 
-enum FolderVCSections: CaseIterable {
+private enum FolderVCSections: CaseIterable {
     case main
 }
 
-class CustomDiffDataSource: UITableViewDiffableDataSource<FolderVCSections, Folder> {
+fileprivate class CustomFoldersDiffDataSource: UITableViewDiffableDataSource<FolderVCSections, Folder> {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         true

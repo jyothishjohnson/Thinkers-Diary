@@ -5,12 +5,15 @@
 //  Created by jyothish.johnson on 16/11/20.
 //
 
-struct Note: Decodable {
+struct Note: Hashable,Decodable {
     
-    var id : String?
-    var name : String?
+    var id : String
+    var name : String
     var content : String?
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 struct PaginatedNotes: Decodable {
