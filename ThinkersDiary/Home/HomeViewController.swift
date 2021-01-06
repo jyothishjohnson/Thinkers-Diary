@@ -69,6 +69,7 @@ extension HomeViewController {
 extension HomeViewController :ConnectionUpdateDelegate {
     
     func connectionDidUpdate() {
+        print(#function)
         UserDefaults.standard.setNetworkStatusisActive(networkObserver.isActive)
         loadController(at: currentTabPosition)
     }

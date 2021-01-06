@@ -11,7 +11,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func makeRequest<T: Any>(_ request : URLRequest, resultHandler: @escaping (Result<T,NetworkManagerError>) -> Void) where T: Decodable{
+    func makeRequest<T: Decodable>(_ request : URLRequest, resultHandler: @escaping (Result<T,NetworkManagerError>) -> Void){
         
         var urlRequest = request
         if urlRequest.httpBody != nil {

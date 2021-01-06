@@ -42,10 +42,6 @@ class NotesFolderViewController: UIViewController {
         loadUserFoldersFromAPI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print(#function)
-    }
-    
     func setUpViews(){
         setUpTableView()
         setUpButtonActions()
