@@ -118,6 +118,23 @@ extension NotesListVC : UITableViewDelegate{
         let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  [unowned self] (contextualAction, view, completion) in
+            if let note = self.dataSource.itemIdentifier(for: indexPath) {
+                var currentSnapshot = self.dataSource.snapshot()
+                currentSnapshot.deleteItems([note])
+                self.dataSource.apply(currentSnapshot)
+                
+                let delNote = DeleteNote(id: note.id)
+                deleteNote(note: delNote)
+            }
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        swipeActions.performsFirstActionWithFullSwipe = false
+        return swipeActions
+    }
 }
 
 //MARK: - Data Tasks
@@ -149,6 +166,32 @@ extension NotesListVC {
             }
         }
         
+    }
+    
+    func deleteNote(note :DeleteNote){
+        
+        let data = try? JSONEncoder().encode(note)
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteNote)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = NetworkMethods.DELETE.rawValue
+        request.httpBody = data
+        
+        service.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+            
+            switch result {
+            
+            case .success(let statusCode):
+                
+                print(statusCode)
+                
+            case .failure(let error):
+                
+                print(error.rawValue)
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func loadUserNotes(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
