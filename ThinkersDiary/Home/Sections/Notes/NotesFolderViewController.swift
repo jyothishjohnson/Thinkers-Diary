@@ -56,7 +56,7 @@ class NotesFolderViewController: UIViewController {
     }
     
     func setUpButtonActions(){
-        topHeaderView.buttonAction = { [unowned self] in
+        topHeaderView.rightButtonAction = { [unowned self] in
             
             let alert = UIAlertController.prompt(title: "Enter folder name") { folderName  in
                 if let name = folderName {

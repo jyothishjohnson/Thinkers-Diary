@@ -12,8 +12,21 @@ class HeaderView: UIView {
     @IBOutlet var rootView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
     
-    var buttonAction : (() -> ())?
+    var leftButtonAction : (() -> ())?
+    var rightButtonAction : (() -> ())?
+    
+    var leftButtonImageName : (name : String,isSystemImage : Bool)? {
+        didSet {
+            if leftButtonImageName?.isSystemImage ?? true {
+                leftButton.setImage(UIImage(systemName: leftButtonImageName?.name ?? ""), for: .normal)
+            }else {
+                leftButton.setImage(UIImage(named: leftButtonImageName?.name ?? ""), for: .normal)
+            }
+        }
+    }
+    
     var rightButtonImageName : (name: String,isSystemImage: Bool)? {
         didSet {
             if rightButtonImageName?.isSystemImage ?? true {
@@ -28,10 +41,15 @@ class HeaderView: UIView {
         super.init(coder: coder)
         setUpView()
     }
-
+    
+    @IBAction func leftButtonAction(_ sender: UIButton) {
+        if let buttonAction = leftButtonAction{
+            buttonAction()
+        }
+    }
+    
     @IBAction func rightButtonAction(_ sender: UIButton) {
-        print(#function)
-        if let buttonAction = buttonAction{
+        if let buttonAction = rightButtonAction{
             buttonAction()
         }
     }

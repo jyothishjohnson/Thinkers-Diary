@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="ThinkersDiary" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="q1B-IZ-Ojk" id="pze-A7-gIk"/>
+                <outlet property="leftButton" destination="wnU-NV-wXD" id="E6Q-mo-KrG"/>
                 <outlet property="rightButton" destination="4S7-vn-hrT" id="pTz-tJ-SrR"/>
                 <outlet property="rootView" destination="iN0-l3-epB" id="h01-Ri-ul3"/>
             </connections>
@@ -37,11 +38,23 @@
                                 <action selector="rightButtonAction:" destination="-1" eventType="touchUpInside" id="gNK-LY-6bS"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnU-NV-wXD">
+                            <rect key="frame" x="8" y="4" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="GwO-0B-pwK"/>
+                                <constraint firstAttribute="width" constant="40" id="TpW-73-9fE"/>
+                            </constraints>
+                            <connections>
+                                <action selector="leftButtonAction:" destination="-1" eventType="touchUpInside" id="o5i-pA-jsz"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="4S7-vn-hrT" firstAttribute="centerY" secondItem="q1B-IZ-Ojk" secondAttribute="centerY" id="F6H-Q8-2u6"/>
+                        <constraint firstItem="wnU-NV-wXD" firstAttribute="centerY" secondItem="q1B-IZ-Ojk" secondAttribute="centerY" id="J5x-ga-a6t"/>
                         <constraint firstAttribute="trailing" secondItem="4S7-vn-hrT" secondAttribute="trailing" constant="8" id="oSR-CU-1d4"/>
+                        <constraint firstItem="wnU-NV-wXD" firstAttribute="leading" secondItem="q1B-IZ-Ojk" secondAttribute="leading" constant="8" id="zgC-oq-rRf"/>
                     </constraints>
                 </view>
             </subviews>

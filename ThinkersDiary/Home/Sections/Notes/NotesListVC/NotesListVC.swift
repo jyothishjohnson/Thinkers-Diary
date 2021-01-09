@@ -65,7 +65,7 @@ class NotesListVC: UIViewController {
     
     func setUpButtonActions(){
         topHeaderView.rightButtonImageName = (name: "plus",isSystemImage: true)
-        topHeaderView.buttonAction = { [unowned self] in
+        topHeaderView.rightButtonAction = { [unowned self] in
             
             let alert = UIAlertController.prompt(title: "Enter note name") { noteName  in
                 
@@ -116,7 +116,8 @@ extension NotesListVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

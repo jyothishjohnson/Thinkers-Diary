@@ -11,6 +11,7 @@ import PencilKit
 class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver{
 
     @IBOutlet weak var canvas: PKCanvasView!
+    @IBOutlet weak var headerView: HeaderView!
     
     var toolPicker: PKToolPicker!
     
