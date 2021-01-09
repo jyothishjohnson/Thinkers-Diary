@@ -64,6 +64,11 @@ class NotesListVC: UIViewController {
     }
     
     func setUpButtonActions(){
+        topHeaderView.leftButtonImageName = ("chevron.left", true)
+        topHeaderView.leftButtonAction = { [unowned self] in
+            print("left button")
+            self.navigationController?.popViewController(animated: true)
+        }
         topHeaderView.rightButtonImageName = (name: "plus",isSystemImage: true)
         topHeaderView.rightButtonAction = { [unowned self] in
             
@@ -117,7 +122,7 @@ extension NotesListVC : UITableViewDelegate{
         
         let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

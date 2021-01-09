@@ -31,7 +31,7 @@
                                 <constraint firstAttribute="height" constant="40" id="1sM-jb-In1"/>
                                 <constraint firstAttribute="width" constant="40" id="Dno-3Q-Yq1"/>
                             </constraints>
-                            <state key="normal" image="folder.badge.plus" catalog="system">
+                            <state key="normal">
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </state>
                             <connections>
@@ -71,7 +71,6 @@
         </view>
     </objects>
     <resources>
-        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

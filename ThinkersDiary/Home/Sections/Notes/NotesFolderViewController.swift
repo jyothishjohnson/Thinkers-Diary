@@ -56,6 +56,7 @@ class NotesFolderViewController: UIViewController {
     }
     
     func setUpButtonActions(){
+        topHeaderView.rightButtonImageName = ("folder.badge.plus", true)
         topHeaderView.rightButtonAction = { [unowned self] in
             
             let alert = UIAlertController.prompt(title: "Enter folder name") { folderName  in

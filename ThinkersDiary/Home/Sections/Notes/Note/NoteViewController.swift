@@ -13,10 +13,11 @@ class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
     @IBOutlet weak var canvas: PKCanvasView!
     @IBOutlet weak var headerView: HeaderView!
     
-    var toolPicker: PKToolPicker!
+    var toolPicker: PKToolPicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,13 +37,32 @@ class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
             toolPicker = PKToolPicker.shared(for: window!)
         }
         
-        toolPicker.setVisible(true, forFirstResponder: canvas)
-        toolPicker.addObserver(canvas)
-        toolPicker.addObserver(self)
-        updateLayout(for: toolPicker)
+        toolPicker?.setVisible(true, forFirstResponder: canvas)
+        toolPicker?.addObserver(canvas)
+        toolPicker?.addObserver(self)
+        if let toolPicker = toolPicker {
+            updateLayout(for: toolPicker)
+        }
         canvas.allowsFingerDrawing = true
         canvas.becomeFirstResponder()
         navigationItem.leftItemsSupplementBackButton = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        toolPicker = nil
+        canvas.resignFirstResponder()
+    }
+    
+    func setUpView(){
+        setUpHeaderView()
+    }
+    
+    func setUpHeaderView(){
+        headerView.leftButtonImageName = ("chevron.left", true)
+        headerView.leftButtonAction = { [unowned self] in
+            print("left button")
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func updateLayout(for toolPicker: PKToolPicker) {
