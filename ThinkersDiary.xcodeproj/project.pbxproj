@@ -30,6 +30,8 @@
 		224FFE322572237D00DCFA94 /* DeleteFolderRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */; };
 		224FFE3E25729A7A00DCFA94 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */; };
 		224FFE3F25729A7A00DCFA94 /* NotesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224FFE3D25729A7A00DCFA94 /* NotesListVC.xib */; };
+		225A67AA25AC1D8E009266D8 /* DrawingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225A67A925AC1D8E009266D8 /* DrawingDataManager.swift */; };
+		225A67AE25AC4ECF009266D8 /* UpdateNoteDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225A67AD25AC4ECF009266D8 /* UpdateNoteDrawing.swift */; };
 		225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC80C256250B200FBE427 /* NetworkManager.swift */; };
 		225DC81225625DF200FBE427 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DC81125625DF200FBE427 /* Note.swift */; };
 		2274B33C2546AB6A006E8CA9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */; };
@@ -101,6 +103,8 @@
 		224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFolderRequestDTO.swift; sourceTree = "<group>"; };
 		224FFE3C25729A7A00DCFA94 /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		224FFE3D25729A7A00DCFA94 /* NotesListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesListVC.xib; sourceTree = "<group>"; };
+		225A67A925AC1D8E009266D8 /* DrawingDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingDataManager.swift; sourceTree = "<group>"; };
+		225A67AD25AC4ECF009266D8 /* UpdateNoteDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteDrawing.swift; sourceTree = "<group>"; };
 		225DC80C256250B200FBE427 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		225DC81125625DF200FBE427 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2274B33A2546AB6A006E8CA9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				225DC80C256250B200FBE427 /* NetworkManager.swift */,
 				22336A7B2597635900ECC8E5 /* LocalAuthValidator.swift */,
 				22A978C925A2DBEB00E5FAA6 /* NetworkObserver.swift */,
+				225A67A925AC1D8E009266D8 /* DrawingDataManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				225DC81125625DF200FBE427 /* Note.swift */,
 				22002B032562B160002B419E /* UploadNote.swift */,
 				22A5666E256A90F700DAE7B6 /* DeleteNote.swift */,
+				225A67AD25AC4ECF009266D8 /* UpdateNoteDrawing.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				2281009A259A064000B34144 /* HeaderView.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
+				225A67AA25AC1D8E009266D8 /* DrawingDataManager.swift in Sources */,
 				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
 				22A80BA8254EB74800B3B159 /* HomeTabDataSource.swift in Sources */,
 				2231159B253EBC7800B85BD4 /* RootViewController.swift in Sources */,
@@ -607,6 +614,7 @@
 				22A5666F256A90F700DAE7B6 /* DeleteNote.swift in Sources */,
 				225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */,
 				2286429F256002CB0010537F /* NotesListCell.swift in Sources */,
+				225A67AE25AC4ECF009266D8 /* UpdateNoteDrawing.swift in Sources */,
 				22A80BA4254EB37600B3B159 /* NotesFolderViewController.swift in Sources */,
 				22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */,
 				22336A7C2597635900ECC8E5 /* LocalAuthValidator.swift in Sources */,

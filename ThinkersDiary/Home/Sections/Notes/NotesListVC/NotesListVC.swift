@@ -32,8 +32,6 @@ class NotesListVC: UIViewController {
     
     var currentFolderId : String?
     
-    let service = NetworkManager.shared
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -121,6 +119,7 @@ extension NotesListVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
+        vc.noteId = notes[indexPath.row].id
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -157,7 +156,7 @@ extension NotesListVC {
         request.httpMethod = NetworkMethods.POST.rawValue
         request.httpBody = data
         
-        service.makeRequest(request) { (result: Result<Note, NetworkManagerError>) in
+        NetworkManager.shared.makeRequest(request) { (result: Result<Note, NetworkManagerError>) in
             
             switch result {
             
@@ -184,7 +183,7 @@ extension NotesListVC {
         request.httpMethod = NetworkMethods.DELETE.rawValue
         request.httpBody = data
         
-        service.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+        NetworkManager.shared.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
             
             switch result {
             
@@ -211,7 +210,7 @@ extension NotesListVC {
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
         
-        service.makeRequest(request) { [weak self] (result: Result<PaginatedNotes,NetworkManagerError>) in
+        NetworkManager.shared.makeRequest(request) { [weak self] (result: Result<PaginatedNotes,NetworkManagerError>) in
              
             switch result {
             

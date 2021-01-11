@@ -8,12 +8,15 @@
 import UIKit
 import PencilKit
 
-class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver{
+class NoteViewController: UIViewController, PKToolPickerObserver{
 
     @IBOutlet weak var canvas: PKCanvasView!
     @IBOutlet weak var headerView: HeaderView!
     
     var toolPicker: PKToolPicker?
+    
+    var drawingHasChanged = false
+    var noteId : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,6 @@ class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
     override func viewWillAppear(_ animated: Bool) {
         
         canvas.delegate = self
-//        canvas.drawing = dataModelController.drawings[drawingIndex]
         canvas.alwaysBounceVertical = true
         canvas.bounces = true
         canvas.alwaysBounceHorizontal = true
@@ -51,6 +53,9 @@ class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
     override func viewWillDisappear(_ animated: Bool) {
         toolPicker = nil
         canvas.resignFirstResponder()
+        if drawingHasChanged {
+            uploadUpdatedDrawing()
+        }
     }
     
     func setUpView(){
@@ -100,9 +105,54 @@ class NoteViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerOb
     }
 }
 
+//MARK: - Save Drawing
+
 extension NoteViewController {
     
+    func uploadUpdatedDrawing(){
+        let note = UpdateNoteDrawing(id: noteId, content: canvas.drawing)
+        encodeDrawing(note: note) { (data) in
+                        
+            let url = URL(string: "\(EP.ipBaseURL)\(EP.updateNoteDrawing)")!
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = NetworkMethods.PUT.rawValue
+            request.httpBody = data
+            
+            NetworkManager.shared.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+                
+                switch result {
+                
+                case .success(let statusCode):
+                    
+                    print(statusCode)
+                    
+                case .failure(let error):
+                    
+                    print(error.rawValue)
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }
+    }
+    
+    func encodeDrawing(note: UpdateNoteDrawing, onCompletion : @escaping (Data?) -> ()){
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let data = try? JSONEncoder().encode(note)
+            onCompletion(data)
+        }
+
+    }
+}
+
+//MARK: - PKCanvasViewDelegate
+
+extension NoteViewController: PKCanvasViewDelegate{
+    
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+        drawingHasChanged = true
         updateContentSizeForDrawing()
     }
 }
