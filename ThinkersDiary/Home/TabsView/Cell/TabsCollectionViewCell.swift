@@ -27,16 +27,16 @@ class TabsCollectionViewCell: UICollectionViewCell {
     }
     
     func removeColor(){
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
-            self.cellView.backgroundColor =  UIColor.color(.TabCellColor)
-            self.cellNameLabel.textColor = UIColor.color(.TabCellLabelColor)
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+            self?.cellView.backgroundColor =  UIColor.color(.TabCellColor)
+            self?.cellNameLabel.textColor = UIColor.color(.TabCellLabelColor)
         }
     }
 
     func addColor(duration : TimeInterval = 0.0){
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut) {
-            self.cellView.backgroundColor = .black
-            self.cellNameLabel.textColor = .white
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut) { [weak self] in
+            self?.cellView.backgroundColor = .black
+            self?.cellNameLabel.textColor = .white
         }
     }
 }
