@@ -140,17 +140,9 @@ extension NotesFolderViewController {
     
     func addNewFolder(folder: NewFolder){
         
-        let data = try? JSONEncoder().encode(folder)
-        
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewFolder)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkMethods.POST.rawValue
-        request.httpBody = data
-        
-        service.makeRequest(request) { (result: Result<Folder, NetworkManagerError>) in
+        loader.addItem(item: folder) { (res) in
             
-            switch result {
+            switch res{
             
             case .success(let folder):
                 
@@ -162,7 +154,6 @@ extension NotesFolderViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
     
     func loadUserFoldersFromAPI(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
@@ -190,17 +181,9 @@ extension NotesFolderViewController {
     
     func deleteFolder(folder : DeleteFolder){
         
-        let data = try? JSONEncoder().encode(folder)
-        
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteFolder)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkMethods.DELETE.rawValue
-        request.httpBody = data
-        
-        service.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+        loader.deleteItem(item: folder) { (res) in
             
-            switch result {
+            switch res{
             
             case .success(let code):
                 
@@ -212,7 +195,6 @@ extension NotesFolderViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
 }
 
