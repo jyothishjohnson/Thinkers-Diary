@@ -25,13 +25,6 @@ class TabsView: UIView {
     
     var currentIndexPath : IndexPath?
     weak var delegate : TabsMenuDelegate?
-        
-    // MARK: Life Cycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initView()
-    }
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

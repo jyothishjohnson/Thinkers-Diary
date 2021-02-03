@@ -11,7 +11,7 @@ struct GlobalConstants {
     
     struct EndPoints {
         static let localBaseURL = "http://localhost:8080"
-        static let ipBaseURL = "http://192.168.43.228:8080"
+        static let ipBaseURL = "http://192.168.29.228:8080"
         
         static let userEndPoint = "/user"
         static let notesEndpoint = "/notes"
