@@ -16,6 +16,7 @@ class HomeTabDataSource {
         
         let controller = NotesFolderViewController(nibName: "NotesFolderViewController", bundle: nil)
         controller.title = "Notes"
+        controller.loader = FolderLoader()
         let navController = UINavigationController(rootViewController: controller)
         navController.navigationBar.isHidden = true
         return navController

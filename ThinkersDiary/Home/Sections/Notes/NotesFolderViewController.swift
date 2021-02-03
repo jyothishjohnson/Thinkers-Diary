@@ -35,6 +35,8 @@ class NotesFolderViewController: UIViewController {
     
     let service = NetworkManager.shared
     
+    var loader : FolderLoader<[Folder]>!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -165,21 +167,14 @@ extension NotesFolderViewController {
     
     func loadUserFoldersFromAPI(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.allUserFolders)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkMethods.GET.rawValue
-        
-        service.makeRequest(request) { [weak self] (result: Result<[Folder],NetworkManagerError>) in
-            
-            switch result {
-            
+        loader.loadItems { [weak self] (res) in
+            switch res {
+                
             case .success(let folders):
                 self?.folders = folders
                 DispatchQueue.main.async {
                     self?.loadDataSource()
                 }
-                
             case .failure(let error):
                 print(error.rawValue)
                 print(error.localizedDescription)
@@ -191,7 +186,6 @@ extension NotesFolderViewController {
                 }
             }
         }
-        
     }
     
     func deleteFolder(folder : DeleteFolder){

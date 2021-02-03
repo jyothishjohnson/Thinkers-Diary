@@ -12,7 +12,7 @@ protocol ConnectionUpdateDelegate: class{
     func connectionDidUpdate()
 }
 
-class NetworkObserver {
+final class NetworkObserver {
     
     static let shared = NetworkObserver()
     
@@ -28,7 +28,7 @@ class NetworkObserver {
     var isConstrained = false
     var connectionType = NWInterface.InterfaceType.other
     
-    init(){
+    private init(){
         observer.pathUpdateHandler = { [unowned self] path in
             
             self.isActive = path.status == .satisfied

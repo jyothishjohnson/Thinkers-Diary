@@ -55,6 +55,8 @@
 		22A978CA25A2DBEB00E5FAA6 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A978C925A2DBEB00E5FAA6 /* NetworkObserver.swift */; };
 		22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */; };
 		22BE86CC25714C6200BAC9D7 /* FolderResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */; };
+		22E2407F25CAC238000D2861 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2407E25CAC238000D2861 /* DataLoader.swift */; };
+		22E2408525CAC82B000D2861 /* FolderLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2408425CAC82B000D2861 /* FolderLoader.swift */; };
 		22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17B5253ECAC200FDE243 /* LoginViewController.swift */; };
 		22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EA17B6253ECAC200FDE243 /* LoginViewController.xib */; };
 		22EA17BD253ECB7700FDE243 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17BB253ECB7700FDE243 /* HomeViewController.swift */; };
@@ -127,6 +129,8 @@
 		22A978C925A2DBEB00E5FAA6 /* NetworkObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddRemoveChildVC.swift"; sourceTree = "<group>"; };
 		22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderResponseDTO.swift; sourceTree = "<group>"; };
+		22E2407E25CAC238000D2861 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		22E2408425CAC82B000D2861 /* FolderLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderLoader.swift; sourceTree = "<group>"; };
 		22EA17B5253ECAC200FDE243 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22EA17B6253ECAC200FDE243 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		22EA17BB253ECB7700FDE243 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 		223115A6253EC35000B85BD4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				22E2407D25CAC214000D2861 /* DataLoaderInterface */,
 				223115A2253EC06600B85BD4 /* Extensions */,
 				223115A7253EC36100B85BD4 /* AppConstants.swift */,
 				2226032225615A9000A93DD6 /* CustomColors.swift */,
@@ -398,6 +403,15 @@
 				224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */,
 			);
 			path = Folders;
+			sourceTree = "<group>";
+		};
+		22E2407D25CAC214000D2861 /* DataLoaderInterface */ = {
+			isa = PBXGroup;
+			children = (
+				22E2407E25CAC238000D2861 /* DataLoader.swift */,
+				22E2408425CAC82B000D2861 /* FolderLoader.swift */,
+			);
+			path = DataLoaderInterface;
 			sourceTree = "<group>";
 		};
 		22EA17B4253ECAA900FDE243 /* Login */ = {
@@ -596,6 +610,7 @@
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
 				2233EFE4257E621900BC388C /* NoteViewController.swift in Sources */,
 				2281009A259A064000B34144 /* HeaderView.swift in Sources */,
+				22E2407F25CAC238000D2861 /* DataLoader.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
 				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
@@ -607,6 +622,7 @@
 				22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */,
 				224FFE2F2572203A00DCFA94 /* NewFolderRequestDTO.swift in Sources */,
 				22A978CA25A2DBEB00E5FAA6 /* NetworkObserver.swift in Sources */,
+				22E2408525CAC82B000D2861 /* FolderLoader.swift in Sources */,
 				22A5666F256A90F700DAE7B6 /* DeleteNote.swift in Sources */,
 				225DC80D256250B200FBE427 /* NetworkManager.swift in Sources */,
 				2286429F256002CB0010537F /* NotesListCell.swift in Sources */,
