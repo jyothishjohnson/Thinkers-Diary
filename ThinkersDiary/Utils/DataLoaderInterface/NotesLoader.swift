@@ -1,17 +1,17 @@
 //
-//  FolderLoader.swift
+//  NotesLoader.swift
 //  ThinkersDiary
 //
-//  Created by jyothish.johnson on 03/02/21.
+//  Created by jyothish.johnson on 04/02/21.
 //
 
 import Foundation
 
-struct FolderLoader<T : Decodable> : DataLoader {
+struct NotesLoader<Item : Decodable> : DataLoader {
     
-    func loadItems(from : String, completion: @escaping (Result<T, NetworkManagerError>) -> ()) {
+    func loadItems(from folderId: String, completion: @escaping (Result<Item, NetworkManagerError>) -> ()) {
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.allUserFolders)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.paginatedNotes)\(folderId)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.GET.rawValue
@@ -19,11 +19,11 @@ struct FolderLoader<T : Decodable> : DataLoader {
         NetworkManager.shared.makeRequest(request, resultHandler: completion)
     }
     
-    func addItem(item : NewFolder, completion : @escaping (Result<Folder, NetworkManagerError>) -> ()){
+    func addItem(item note : UploadNote, completion : @escaping (Result<Note, NetworkManagerError>) -> ()){
         
-        let data = try? JSONEncoder().encode(item)
+        let data = try? JSONEncoder().encode(note)
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewFolder)")!
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewNote)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.POST.rawValue
@@ -32,10 +32,11 @@ struct FolderLoader<T : Decodable> : DataLoader {
         NetworkManager.shared.makeRequest(request, resultHandler: completion)
     }
     
-    func deleteItem(item : DeleteFolder, completion : @escaping (Result<Int,NetworkManagerError>) -> ()){
-        let data = try? JSONEncoder().encode(item)
+    func deleteItem(item note : DeleteNote, completion : @escaping (Result<Int, NetworkManagerError>) -> ()){
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteFolder)")!
+        let data = try? JSONEncoder().encode(note)
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteNote)")!
         
         var request = URLRequest(url: url)
         request.httpMethod = NetworkMethods.DELETE.rawValue

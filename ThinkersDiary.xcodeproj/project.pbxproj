@@ -10,6 +10,7 @@
 		10F86346440C338098C79620 /* Pods_ThinkersDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE6913A637E343BFC8F1739 /* Pods_ThinkersDiary.framework */; };
 		22002B042562B160002B419E /* UploadNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22002B032562B160002B419E /* UploadNote.swift */; };
 		220568192577AEDC00BDF4EC /* UserFlowDelegateAdapterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220568182577AEDC00BDF4EC /* UserFlowDelegateAdapterVC.swift */; };
+		220D6D6725CBC5F300273EFA /* NotesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D6D6625CBC5F300273EFA /* NotesLoader.swift */; };
 		2226032325615A9000A93DD6 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226032225615A9000A93DD6 /* CustomColors.swift */; };
 		2226032625615AC600A93DD6 /* UIColor+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226032525615AC600A93DD6 /* UIColor+DarkMode.swift */; };
 		22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22311583253EBB7900B85BD4 /* AppDelegate.swift */; };
@@ -80,6 +81,7 @@
 		0C807D26E71FBF042C6C4DE0 /* Pods-ThinkersDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkersDiary.debug.xcconfig"; path = "Target Support Files/Pods-ThinkersDiary/Pods-ThinkersDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		22002B032562B160002B419E /* UploadNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNote.swift; sourceTree = "<group>"; };
 		220568182577AEDC00BDF4EC /* UserFlowDelegateAdapterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFlowDelegateAdapterVC.swift; sourceTree = "<group>"; };
+		220D6D6625CBC5F300273EFA /* NotesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesLoader.swift; sourceTree = "<group>"; };
 		2226032225615A9000A93DD6 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2226032525615AC600A93DD6 /* UIColor+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DarkMode.swift"; sourceTree = "<group>"; };
 		22311580253EBB7800B85BD4 /* ThinkersDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkersDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,6 +412,7 @@
 			children = (
 				22E2407E25CAC238000D2861 /* DataLoader.swift */,
 				22E2408425CAC82B000D2861 /* FolderLoader.swift */,
+				220D6D6625CBC5F300273EFA /* NotesLoader.swift */,
 			);
 			path = DataLoaderInterface;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				223115A8253EC36100B85BD4 /* AppConstants.swift in Sources */,
 				2233EFE4257E621900BC388C /* NoteViewController.swift in Sources */,
 				2281009A259A064000B34144 /* HeaderView.swift in Sources */,
+				220D6D6725CBC5F300273EFA /* NotesLoader.swift in Sources */,
 				22E2407F25CAC238000D2861 /* DataLoader.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
@@ -854,6 +858,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyo.app.ThinkersDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThinkersDiary.app/ThinkersDiary";
@@ -875,6 +880,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyo.app.ThinkersDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThinkersDiary.app/ThinkersDiary";

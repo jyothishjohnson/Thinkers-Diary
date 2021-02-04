@@ -12,5 +12,5 @@ protocol DataLoader {
     associatedtype Items where Items : Decodable
     associatedtype E where E : Error
     
-    func loadItems(completion : @escaping (Result<Items,E>) -> ())
+    func loadItems(from : String, completion : @escaping (Result<Items,E>) -> ())
 }

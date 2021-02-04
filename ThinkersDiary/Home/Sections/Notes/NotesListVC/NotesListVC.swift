@@ -32,6 +32,8 @@ class NotesListVC: UIViewController {
     
     var currentFolderId : String?
     
+    var loader : NotesLoader<PaginatedNotes>!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -148,21 +150,12 @@ extension NotesListVC {
     
     func addNewNote(note: UploadNote){
         
-        let data = try? JSONEncoder().encode(note)
-        
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.addNewNote)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkMethods.POST.rawValue
-        request.httpBody = data
-        
-        NetworkManager.shared.makeRequest(request) { (result: Result<Note, NetworkManagerError>) in
+        loader.addItem(item: note) { (res) in
             
-            switch result {
+            switch res {
             
             case .success(let note):
-                
-                print(note)
+                print(note.name)
                 
             case .failure(let error):
                 
@@ -170,23 +163,13 @@ extension NotesListVC {
                 print(error.localizedDescription)
             }
         }
-        
     }
     
     func deleteNote(note :DeleteNote){
         
-        let data = try? JSONEncoder().encode(note)
-        
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.deleteNote)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkMethods.DELETE.rawValue
-        request.httpBody = data
-        
-        NetworkManager.shared.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+        loader.deleteItem(item: note) { (res) in
             
-            switch result {
-            
+            switch res {
             case .success(let statusCode):
                 
                 print(statusCode)
@@ -205,21 +188,15 @@ extension NotesListVC {
             return
         }
         
-        let url = URL(string: "\(EP.ipBaseURL)\(EP.paginatedNotes)\(folderId)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkMethods.GET.rawValue
-        
-        NetworkManager.shared.makeRequest(request) { [weak self] (result: Result<PaginatedNotes,NetworkManagerError>) in
-             
-            switch result {
+        loader.loadItems(from: folderId) { [weak self] (res) in
+            
+            switch res {
             
             case .success(let response):
                 self?.notes = response.items ?? []
                 DispatchQueue.main.async {
                     self?.loadDataSource()
                 }
-                
             case .failure(let error):
                 print(error.rawValue)
                 print(error.localizedDescription)

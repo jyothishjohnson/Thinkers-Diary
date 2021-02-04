@@ -109,6 +109,7 @@ extension NotesFolderViewController : UITableViewDelegate {
         print(indexPath.row)
         
         let vc = NotesListVC(nibName: "NotesListVC", bundle: .main)
+        vc.loader = NotesLoader()
         vc.currentFolderId = folders[indexPath.row].id
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(vc, animated: true)
@@ -158,7 +159,7 @@ extension NotesFolderViewController {
     
     func loadUserFoldersFromAPI(for page : Int = 1, with rows : Int = 20, isFromRefresh : Bool = false){
         
-        loader.loadItems { [weak self] (res) in
+        loader.loadItems(from : "") { [weak self] (res) in
             switch res {
                 
             case .success(let folders):
