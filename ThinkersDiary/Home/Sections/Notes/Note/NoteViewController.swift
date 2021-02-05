@@ -26,7 +26,6 @@ class NoteViewController: UIViewController, PKToolPickerObserver{
 
     override func viewWillAppear(_ animated: Bool) {
         
-        canvas.delegate = self
         canvas.alwaysBounceVertical = true
         canvas.bounces = true
         
@@ -37,7 +36,7 @@ class NoteViewController: UIViewController, PKToolPickerObserver{
                 print(error.localizedDescription)
             }
         }
-        
+        canvas.delegate = self
         canvas.alwaysBounceHorizontal = true
         canvas.setZoomScale(100, animated: true)
         
