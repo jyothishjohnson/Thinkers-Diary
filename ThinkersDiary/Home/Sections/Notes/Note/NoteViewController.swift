@@ -17,6 +17,7 @@ class NoteViewController: UIViewController, PKToolPickerObserver{
     
     var drawingHasChanged = false
     var noteId : String!
+    var content : Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,15 @@ class NoteViewController: UIViewController, PKToolPickerObserver{
         canvas.delegate = self
         canvas.alwaysBounceVertical = true
         canvas.bounces = true
+        
+        if let content = content {
+            do {
+                try canvas.drawing = PKDrawing(data: content)
+            }catch {
+                print(error.localizedDescription)
+            }
+        }
+        
         canvas.alwaysBounceHorizontal = true
         canvas.setZoomScale(100, animated: true)
         
@@ -85,7 +95,7 @@ class NoteViewController: UIViewController, PKToolPickerObserver{
         // redo buttons.
         else {
             canvas.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.bounds.maxY - obscuredFrame.minY, right: 0)
-//            navigationItem.leftBarButtonItems = [undoBarButtonitem, redoBarButtonItem]
+            //            navigationItem.leftBarButtonItems = [undoBarButtonitem, redoBarButtonItem]
         }
         canvas.scrollIndicatorInsets = canvas.contentInset
     }
@@ -110,40 +120,33 @@ class NoteViewController: UIViewController, PKToolPickerObserver{
 extension NoteViewController {
     
     func uploadUpdatedDrawing(){
-        let note = UpdateNoteDrawing(id: noteId, content: canvas.drawing)
-        encodeDrawing(note: note) { (data) in
-                        
-            let url = URL(string: "\(EP.ipBaseURL)\(EP.updateNoteDrawing)")!
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = NetworkMethods.PUT.rawValue
-            request.httpBody = data
-            
-            NetworkManager.shared.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
-                
-                switch result {
-                
-                case .success(let statusCode):
-                    
-                    print(statusCode)
-                    
-                case .failure(let error):
-                    
-                    print(error.rawValue)
-                    print(error.localizedDescription)
-                }
-            }
-            
-        }
-    }
-    
-    func encodeDrawing(note: UpdateNoteDrawing, onCompletion : @escaping (Data?) -> ()){
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            let data = try? JSONEncoder().encode(note)
-            onCompletion(data)
+        let data : Data = canvas.drawing.dataRepresentation()
+        
+        let note = UpdateNoteDrawing(id: noteId, content: data)
+        
+        let noteData = try? JSONEncoder().encode(note)
+        
+        let url = URL(string: "\(EP.ipBaseURL)\(EP.updateNoteDrawing)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = NetworkMethods.PUT.rawValue
+        request.httpBody = noteData
+        
+        NetworkManager.shared.makeRequest(request) { (result: Result<Int, NetworkManagerError>) in
+            
+            switch result {
+            
+            case .success(let statusCode):
+                
+                print(statusCode)
+                
+            case .failure(_):
+                print()
+            }
         }
-
+        
+        
     }
 }
 

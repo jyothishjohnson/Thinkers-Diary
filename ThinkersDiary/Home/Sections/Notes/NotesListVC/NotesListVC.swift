@@ -122,6 +122,7 @@ extension NotesListVC : UITableViewDelegate{
         
         let vc = NoteViewController(nibName: "NoteViewController", bundle: .main)
         vc.noteId = notes[indexPath.row].id
+        vc.content = notes[indexPath.row].content
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }

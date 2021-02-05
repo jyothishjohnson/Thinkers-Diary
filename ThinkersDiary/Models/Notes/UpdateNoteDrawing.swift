@@ -10,5 +10,5 @@ import PencilKit
 struct UpdateNoteDrawing: Encodable{
     
     var id : String
-    var content : PKDrawing
+    var content : Data
 }
