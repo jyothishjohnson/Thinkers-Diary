@@ -31,7 +31,7 @@ class HomeTabDataSource {
     }()
     lazy var diaryController : UINavigationController = {
         
-        let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
+        let controller = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         controller.title = "Diary"
         let navController = UINavigationController(rootViewController: controller)
         navController.navigationBar.isHidden = true
@@ -39,7 +39,7 @@ class HomeTabDataSource {
     }()
     lazy var profileController : UINavigationController = {
         
-        let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
+        let controller = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         controller.title = "Profile"
         let navController = UINavigationController(rootViewController: controller)
         navController.navigationBar.isHidden = true
