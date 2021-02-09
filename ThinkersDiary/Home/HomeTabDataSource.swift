@@ -9,7 +9,21 @@ import UIKit
 
 class HomeTabDataSource {
     
+    private enum IconName: String,CaseIterable{
+        
+        case notesIconName = "note.text"
+        case eventsIconName = "calendar"
+        case diaryIconName = "text.book.closed"
+        case profileIconName = "person"
+    }
+    
     var data = [UIViewController?]()
+    
+    var iconNames : [String]{
+        return IconName.allCases.map { (icon) -> String in
+            icon.rawValue
+        }
+    }
     unowned var parent : UIViewController!
     
     lazy var notesController : UINavigationController = {

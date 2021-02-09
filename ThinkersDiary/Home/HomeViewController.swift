@@ -18,18 +18,22 @@ class HomeViewController: UserFlowDelegateAdapterVC {
     
     private var currentTabPosition = 0
     
+    var homeTabDataSource : HomeTabDataSource!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabsView.delegate = self
         setData()
         networkObserver.delegate = self
+        homeTabDataSource = HomeTabDataSource(self)
     }
     
     func setData(){
-        tabsDataSource = HomeTabDataSource(self).data
-        tabsView.datasource = tabsDataSource.map{
+        tabsDataSource = homeTabDataSource.data
+        tabsView.datasource = (tabsDataSource.map{
             $0?.title ?? ""
-        }
+        },
+        homeTabDataSource.iconNames)
         selectController(at: currentTabPosition, containerView: containerView)
     }
 

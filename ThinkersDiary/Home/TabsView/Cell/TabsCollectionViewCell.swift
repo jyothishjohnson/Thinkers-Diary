@@ -10,33 +10,28 @@ import UIKit
 class TabsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var cellNameLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
     
-    var cellNameText : String? {
-        didSet {
-            cellNameLabel.text = cellNameText
+    var iconName : String? {
+        didSet{
+            iconImageView.image = UIImage(systemName: iconName ?? "")
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .systemBackground
-        self.cellNameLabel.textColor = UIColor.color(.TabCellLabelColor)
-        self.cellView.layer.cornerRadius = 16
-        self.cellView.backgroundColor = UIColor.color(.TabCellColor)
+        self.backgroundColor = .white
     }
     
     func removeColor(){
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
-            self?.cellView.backgroundColor =  UIColor.color(.TabCellColor)
-            self?.cellNameLabel.textColor = UIColor.color(.TabCellLabelColor)
+            self?.iconImageView.tintColor = .darkGray
         }
     }
 
     func addColor(duration : TimeInterval = 0.0){
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut) { [weak self] in
-            self?.cellView.backgroundColor = .black
-            self?.cellNameLabel.textColor = .white
+            self?.iconImageView.tintColor = .systemBlue
         }
     }
 }

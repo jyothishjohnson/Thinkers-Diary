@@ -17,7 +17,7 @@ class TabsView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     
-    var datasource : [String] = [] {
+    var datasource : (tabs: [String], icons: [String]) = ([],[]) {
         didSet {
             print(datasource)
         }
@@ -58,13 +58,13 @@ class TabsView: UIView {
 extension TabsView : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        datasource.count
+        datasource.tabs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabsCollectionViewCell", for: indexPath) as! TabsCollectionViewCell
-        cell.cellNameText = datasource[indexPath.row]
-        
+        cell.cellNameText = datasource.tabs[indexPath.row]
+        cell.iconName = datasource.icons[indexPath.row]
         if indexPath.row == 0 {
             cell.addColor()
             currentIndexPath = indexPath
@@ -74,7 +74,7 @@ extension TabsView : UICollectionViewDataSource, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = collectionView.frame.width / CGFloat(datasource.count)
+        let width = collectionView.frame.width / CGFloat(datasource.tabs.count)
         let height = collectionView.frame.height
         return CGSize(width: width, height: height)
     }
