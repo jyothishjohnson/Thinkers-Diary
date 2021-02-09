@@ -9,6 +9,8 @@ import UIKit
 
 class RemindersViewController: UIViewController {
 
+    @IBOutlet weak var topView: HeaderView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

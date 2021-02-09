@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RemindersViewController" customModule="ThinkersDiary" customModuleProvider="target">
             <connections>
+                <outlet property="topView" destination="x7l-Y1-Cl4" id="jLI-N1-HzA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,9 +19,23 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7l-Y1-Cl4" customClass="HeaderView" customModule="ThinkersDiary" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="Zzg-qP-8J6"/>
+                    </constraints>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="142" y="100"/>
+            <constraints>
+                <constraint firstItem="x7l-Y1-Cl4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5UC-IQ-Pgn"/>
+                <constraint firstItem="x7l-Y1-Cl4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cZs-vD-Ab9"/>
+                <constraint firstItem="x7l-Y1-Cl4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kCz-KN-Jy7"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="99.776785714285708"/>
         </view>
     </objects>
     <resources>
