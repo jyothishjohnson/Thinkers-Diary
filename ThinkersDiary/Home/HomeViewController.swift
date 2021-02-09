@@ -22,10 +22,10 @@ class HomeViewController: UserFlowDelegateAdapterVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabsView.delegate = self
-        setData()
-        networkObserver.delegate = self
         homeTabDataSource = HomeTabDataSource(self)
+        tabsView.delegate = self
+        networkObserver.delegate = self
+        setData()
     }
     
     func setData(){

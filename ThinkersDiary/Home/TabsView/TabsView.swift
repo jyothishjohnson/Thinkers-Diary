@@ -63,7 +63,6 @@ extension TabsView : UICollectionViewDataSource, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabsCollectionViewCell", for: indexPath) as! TabsCollectionViewCell
-        cell.cellNameText = datasource.tabs[indexPath.row]
         cell.iconName = datasource.icons[indexPath.row]
         if indexPath.row == 0 {
             cell.addColor()
