@@ -9,12 +9,12 @@ import Foundation
 
 struct LocalAuthValidator {
     
-    static func validateUserName(userName : String) -> (message: String, isValid: Bool) {
+    static func validateUserName(userName : String) -> Bool {
         
         if userName.count < 4 {
-            return (LocalAuthError.userNameTooSmall.errorMessage, false)
+            return false
         }else if userName.count > 20 {
-            return (LocalAuthError.userNameTooLarge.errorMessage, false)
+            return false
         }else {
             let invertedAlphaNumericSet = Set(arrayLiteral: CharacterSet.alphanumerics.inverted)
             var flag = false
@@ -25,20 +25,20 @@ struct LocalAuthValidator {
                 }
             }
             if flag {
-                return (LocalAuthError.invalidUserName.errorMessage, false)
+                return false
             }
-            return ("Success", true)
+            return true
         }
     }
     
-    static func validateUserPassword(password : String) -> (message: String, isValid: Bool){
+    static func validateUserPassword(password : String) -> Bool{
         
         if password.count < 4 {
-            return (LocalAuthError.passwordTooSmall.errorMessage, false)
+            return false
         }else if password.count > 24 {
-            return (LocalAuthError.passwordTooLarge.errorMessage, false)
+            return false
         }else {
-            return ("Success", true)
+            return true
         }
     }
 }
