@@ -11,10 +11,10 @@ class HomeTabDataSource {
     
     private enum IconName: String,CaseIterable{
         
-        case notesIconName = "note.text"
+        case notesIconName = "pencil.and.outline"
         case eventsIconName = "calendar"
-        case diaryIconName = "text.book.closed"
-        case profileIconName = "person"
+        case diaryIconName = "text.book.closed.fill"
+        case profileIconName = "person.fill"
     }
     
     var data = [UIViewController?]()
