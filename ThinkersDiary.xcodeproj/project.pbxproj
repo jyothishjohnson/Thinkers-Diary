@@ -54,6 +54,7 @@
 		22A80BB6254EBD6F00B3B159 /* TabsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */; };
 		22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */; };
 		22A978CA25A2DBEB00E5FAA6 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A978C925A2DBEB00E5FAA6 /* NetworkObserver.swift */; };
+		22AC3EB225D80769003C6B1E /* EventsDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AC3EB125D80769003C6B1E /* EventsDemoViewController.swift */; };
 		22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */; };
 		22BE86CC25714C6200BAC9D7 /* FolderResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */; };
 		22E2407F25CAC238000D2861 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2407E25CAC238000D2861 /* DataLoader.swift */; };
@@ -131,6 +132,7 @@
 		22A80BB4254EBD6F00B3B159 /* TabsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A80BB5254EBD6F00B3B159 /* TabsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsCollectionViewCell.xib; sourceTree = "<group>"; };
 		22A978C925A2DBEB00E5FAA6 /* NetworkObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
+		22AC3EB125D80769003C6B1E /* EventsDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDemoViewController.swift; sourceTree = "<group>"; };
 		22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddRemoveChildVC.swift"; sourceTree = "<group>"; };
 		22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderResponseDTO.swift; sourceTree = "<group>"; };
 		22E2407E25CAC238000D2861 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			children = (
 				2286428E255FF96C0010537F /* RemindersViewController.swift */,
 				2286428F255FF96C0010537F /* RemindersViewController.xib */,
+				22AC3EB125D80769003C6B1E /* EventsDemoViewController.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				2281009A259A064000B34144 /* HeaderView.swift in Sources */,
 				220D6D6725CBC5F300273EFA /* NotesLoader.swift in Sources */,
 				22E2407F25CAC238000D2861 /* DataLoader.swift in Sources */,
+				22AC3EB225D80769003C6B1E /* EventsDemoViewController.swift in Sources */,
 				22311584253EBB7900B85BD4 /* AppDelegate.swift in Sources */,
 				228900B6256F90090049D07C /* FolderListCell.swift in Sources */,
 				2286428B255FBEEE0010537F /* UIAlertController.swift in Sources */,
@@ -826,7 +830,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 54958LAJ8F;
 				INFOPLIST_FILE = ThinkersDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -847,7 +851,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 54958LAJ8F;
 				INFOPLIST_FILE = ThinkersDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
