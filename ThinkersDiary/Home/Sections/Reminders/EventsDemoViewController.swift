@@ -10,8 +10,7 @@ import UIKit
 class EventsDemoViewController: UIViewController {
     
     var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, DestinationCities>!
-    var dataSourceCL: UICollectionViewDiffableDataSource<Section, Country>!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Usable>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,6 @@ class EventsDemoViewController: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
-//        collectionView.delegate = self
         view.addSubview(collectionView)
     }
     
@@ -65,31 +63,19 @@ class EventsDemoViewController: UIViewController {
     func configureDataSource() {
         
                 
-        dataSource = UICollectionViewDiffableDataSource<Section,DestinationCities>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, dest) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section,Usable>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, usable) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknown section") }
             
             switch section {
     
             case .destinations:
-                return collectionView.dequeueConfiguredReusableCell(using: self.configuredGridCell(), for: indexPath, item: dest)
-            default:
-                return nil
-
-            }
-        })
-        
-        dataSourceCL = UICollectionViewDiffableDataSource<Section,Country>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, country) -> UICollectionViewCell? in
-            guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknown section") }
-
-            switch section {
-
+                return collectionView.dequeueConfiguredReusableCell(using: self.configuredGridCell(), for: indexPath, item: (usable as! DestinationCities))
             case .countries:
-                return collectionView.dequeueConfiguredReusableCell(using: self.configuredListCell(), for: indexPath, item: country)
+                return collectionView.dequeueConfiguredReusableCell(using: self.configuredListCell(), for: indexPath, item: (usable as! Country))
 
-            default:
-                return nil
             }
         })
+
 
         
     }
@@ -97,7 +83,7 @@ class EventsDemoViewController: UIViewController {
     func configuredListCell() -> UICollectionView.CellRegistration<UICollectionViewListCell, Country> {
         return UICollectionView.CellRegistration<UICollectionViewListCell, Country> { (cell, indexPath, item) in
             var content = UIListContentConfiguration.valueCell()
-            content.text = item.name
+            content.text = item.cName
             cell.contentConfiguration = content
         }
     }
@@ -105,8 +91,8 @@ class EventsDemoViewController: UIViewController {
     func configuredGridCell() -> UICollectionView.CellRegistration<UICollectionViewCell, DestinationCities> {
         return UICollectionView.CellRegistration<UICollectionViewCell, DestinationCities> { (cell, indexPath, dest) in
             var content = UIListContentConfiguration.cell()
-            content.text = dest.name
-            content.textProperties.font = .boldSystemFont(ofSize: 38)
+            content.text = dest.destName
+            content.textProperties.font = .boldSystemFont(ofSize: 28)
             content.textProperties.alignment = .center
             content.directionalLayoutMargins = .zero
             cell.contentConfiguration = content
@@ -121,38 +107,26 @@ class EventsDemoViewController: UIViewController {
     func applyInitialSnapshots(){
         
         let sections = Section.allCases
-        var snapshot = NSDiffableDataSourceSnapshot<Section, DestinationCities>()
-        var snapshotCL = NSDiffableDataSourceSnapshot<Section, Country>()
-        snapshotCL.appendSections(sections)
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Usable>()
         snapshot.appendSections(sections)
         dataSource.apply(snapshot, animatingDifferences: false)
-        dataSourceCL.apply(snapshotCL, animatingDifferences: false)
         
         let dest = [DestinationCities(name: "DElhi"),DestinationCities(name: "Banglore"), DestinationCities(name: "Kochi"), DestinationCities(name: "Manali")]
-        var recentsSnapshot = NSDiffableDataSourceSectionSnapshot<DestinationCities>()
+        var recentsSnapshot = NSDiffableDataSourceSectionSnapshot<Usable>()
         recentsSnapshot.append(dest)
         dataSource.apply(recentsSnapshot, to: .destinations, animatingDifferences: false)
         
         let countries = [Country(name: "India"), Country(name: "USA"),Country(name: "China")]
-        var recentsSnapshotCL = NSDiffableDataSourceSectionSnapshot<Country>()
-        recentsSnapshotCL.append(countries)
-        dataSourceCL.apply(recentsSnapshotCL, to: .countries, animatingDifferences: false)
+        var countrySnapshot = NSDiffableDataSourceSectionSnapshot<Usable>()
+        countrySnapshot.append(countries)
+        dataSource.apply(countrySnapshot, to: .countries, animatingDifferences: false)
         
     }
 }
 
 
-//struct Events: Hashable {
-//
-//    let recents : [DestinationCities]
-//    let list : [Country]
-//}
 
-class Usable {
-
-}
-
-class DestinationCities: Usable, Hashable  {
+class Usable: Hashable {
     let name : String
     
     init(name : String){
@@ -163,24 +137,28 @@ class DestinationCities: Usable, Hashable  {
         hasher.combine(name)
     }
     
-    static func == (lhs: DestinationCities, rhs: DestinationCities) -> Bool {
+    static func == (lhs: Usable, rhs: Usable) -> Bool {
         lhs.name == rhs.name
     }
 }
 
-class Country: Usable, Hashable{
-    let name : String
+final class DestinationCities: Usable{
+    let destName : String
     
-    init(name : String){
-        self.name = name
+    override init(name: String){
+        
+        self.destName = name.lowercased()
+        super.init(name: name)
     }
+}
+
+final class Country: Usable{
+    let cName : String
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-    
-    static func == (lhs: Country, rhs: Country) -> Bool {
-        lhs.name == rhs.name
+    override init(name: String){
+        
+        self.cName = name.uppercased()
+        super.init(name: name)
     }
 }
 
