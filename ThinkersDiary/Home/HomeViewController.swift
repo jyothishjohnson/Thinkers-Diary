@@ -59,12 +59,14 @@ extension HomeViewController {
     }
     
     func selectController(at position : Int, containerView : UIView){
-        if UserDefaults.standard.getNetworkStatusisActive(){
-            add(asChildViewController: tabsDataSource[position]!, containerView: containerView)
-            
-        }else{
-            //FIXME: Add no network code here
-        }
+        
+        add(asChildViewController: tabsDataSource[position]!, containerView: containerView)
+
+//        if UserDefaults.standard.getNetworkStatusisActive(){
+//
+//        }else{
+//            //FIXME: Add no network code here
+//        }
     }
 }
 
