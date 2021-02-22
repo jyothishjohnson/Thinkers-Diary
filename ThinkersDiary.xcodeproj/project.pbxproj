@@ -272,6 +272,13 @@
 			path = Note;
 			sourceTree = "<group>";
 		};
+		223DD27B25DD4DF900F9D29A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		224FFE392572991300DCFA94 /* NotesListVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +338,7 @@
 		2286428D255FF9400010537F /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				223DD27B25DD4DF900F9D29A /* Cells */,
 				2286428E255FF96C0010537F /* RemindersViewController.swift */,
 				2286428F255FF96C0010537F /* RemindersViewController.xib */,
 				22AC3EB125D80769003C6B1E /* EventsDemoViewController.swift */,

@@ -75,8 +75,6 @@ class EventsDemoViewController: UIViewController {
 
             }
         })
-
-
         
     }
     
