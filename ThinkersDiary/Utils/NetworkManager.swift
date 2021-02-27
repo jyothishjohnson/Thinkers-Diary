@@ -21,7 +21,7 @@ final class NetworkManager {
     func makeRequest<T: Decodable>(_ request : URLRequest, resultHandler: @escaping (Result<T,NetworkManagerError>) -> Void){
         
         var urlRequest = request
-        urlRequest.cachePolicy = .returnCacheDataElseLoad
+        urlRequest.cachePolicy = .reloadRevalidatingCacheData
         if urlRequest.httpBody != nil {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
@@ -68,7 +68,7 @@ final class NetworkManager {
         let cache = URLCache()
         let config = URLSessionConfiguration.default
         config.urlCache = cache
-        config.requestCachePolicy = .returnCacheDataElseLoad
+        config.requestCachePolicy = .reloadRevalidatingCacheData
         return URLSession(configuration: config)
     }
 }

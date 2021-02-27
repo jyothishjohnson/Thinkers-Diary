@@ -37,8 +37,8 @@ class HomeTabDataSource {
     }()
     lazy var reminderController : UINavigationController = {
         
-        let controller = EventsDemoViewController()
-//        let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
+//        let controller = EventsDemoViewController()
+        let controller = RemindersViewController(nibName: "RemindersViewController", bundle: nil)
         controller.title = "Reminders"
         let navController = UINavigationController(rootViewController: controller)
         navController.navigationBar.isHidden = true
