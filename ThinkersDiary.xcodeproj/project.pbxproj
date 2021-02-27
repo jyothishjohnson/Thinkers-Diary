@@ -57,6 +57,8 @@
 		22AC3EB225D80769003C6B1E /* EventsDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AC3EB125D80769003C6B1E /* EventsDemoViewController.swift */; };
 		22BD61CA255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */; };
 		22BE86CC25714C6200BAC9D7 /* FolderResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */; };
+		22D16F5825EA66B500DEE78C /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16F5625EA66B500DEE78C /* NewReminderViewController.swift */; };
+		22D16F5925EA66B500DEE78C /* NewReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D16F5725EA66B500DEE78C /* NewReminderViewController.xib */; };
 		22E2407F25CAC238000D2861 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2407E25CAC238000D2861 /* DataLoader.swift */; };
 		22E2408525CAC82B000D2861 /* FolderLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2408425CAC82B000D2861 /* FolderLoader.swift */; };
 		22EA17B7253ECAC200FDE243 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA17B5253ECAC200FDE243 /* LoginViewController.swift */; };
@@ -135,6 +137,8 @@
 		22AC3EB125D80769003C6B1E /* EventsDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDemoViewController.swift; sourceTree = "<group>"; };
 		22BD61C9255FAE0700E06414 /* UIViewController+AddRemoveChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddRemoveChildVC.swift"; sourceTree = "<group>"; };
 		22BE86CB25714C6200BAC9D7 /* FolderResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderResponseDTO.swift; sourceTree = "<group>"; };
+		22D16F5625EA66B500DEE78C /* NewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		22D16F5725EA66B500DEE78C /* NewReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewReminderViewController.xib; sourceTree = "<group>"; };
 		22E2407E25CAC238000D2861 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		22E2408425CAC82B000D2861 /* FolderLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderLoader.swift; sourceTree = "<group>"; };
 		22EA17B5253ECAC200FDE243 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 		2286428D255FF9400010537F /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				22D16F5525EA669100DEE78C /* NewReminder */,
 				223DD27B25DD4DF900F9D29A /* Cells */,
 				2286428E255FF96C0010537F /* RemindersViewController.swift */,
 				2286428F255FF96C0010537F /* RemindersViewController.xib */,
@@ -421,6 +426,15 @@
 				224FFE312572237D00DCFA94 /* DeleteFolderRequestDTO.swift */,
 			);
 			path = Folders;
+			sourceTree = "<group>";
+		};
+		22D16F5525EA669100DEE78C /* NewReminder */ = {
+			isa = PBXGroup;
+			children = (
+				22D16F5625EA66B500DEE78C /* NewReminderViewController.swift */,
+				22D16F5725EA66B500DEE78C /* NewReminderViewController.xib */,
+			);
+			path = NewReminder;
 			sourceTree = "<group>";
 		};
 		22E2407D25CAC214000D2861 /* DataLoaderInterface */ = {
@@ -572,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22ED7D1525D2B8F000E362C2 /* ProfileViewController.xib in Resources */,
+				22D16F5925EA66B500DEE78C /* NewReminderViewController.xib in Resources */,
 				22A80BB0254EBBBA00B3B159 /* TabsView.xib in Resources */,
 				22A80BB7254EBD6F00B3B159 /* TabsCollectionViewCell.xib in Resources */,
 				22EA17B8253ECAC200FDE243 /* LoginViewController.xib in Resources */,
@@ -669,6 +684,7 @@
 				22002B042562B160002B419E /* UploadNote.swift in Sources */,
 				224FFE3E25729A7A00DCFA94 /* NotesListVC.swift in Sources */,
 				22ED7D1425D2B8F000E362C2 /* ProfileViewController.swift in Sources */,
+				22D16F5825EA66B500DEE78C /* NewReminderViewController.swift in Sources */,
 				22311586253EBB7900B85BD4 /* SceneDelegate.swift in Sources */,
 				22FB63BC25765B2300C49DDF /* BaseViewController.swift in Sources */,
 			);
