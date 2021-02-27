@@ -16,7 +16,7 @@ class HomeViewController: UserFlowDelegateAdapterVC {
     
     var tabsDataSource : [UIViewController?] = []
     
-    private var currentTabPosition = 0
+    private var currentTabPosition = 1
     
     var homeTabDataSource : HomeTabDataSource!
     
@@ -33,7 +33,7 @@ class HomeViewController: UserFlowDelegateAdapterVC {
         tabsView.datasource = (tabsDataSource.map{
             $0?.title ?? ""
         },
-        homeTabDataSource.iconNames)
+        homeTabDataSource.iconNames,currentTabPosition)
         selectController(at: currentTabPosition, containerView: containerView)
     }
 

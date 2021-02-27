@@ -17,7 +17,7 @@ class TabsView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     
-    var datasource : (tabs: [String], icons: [String]) = ([],[]) {
+    var datasource : (tabs: [String], icons: [String],startTabPosition: Int) = ([],[],0) {
         didSet {
             print(datasource)
         }
@@ -65,8 +65,10 @@ extension TabsView : UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabsCollectionViewCell", for: indexPath) as! TabsCollectionViewCell
         cell.iconName = datasource.icons[indexPath.row]
         if indexPath.row == 0 {
-            cell.addColor()
             currentIndexPath = indexPath
+        }
+        if indexPath.row == datasource.startTabPosition {
+            cell.addColor()
         }
         return cell
     }
